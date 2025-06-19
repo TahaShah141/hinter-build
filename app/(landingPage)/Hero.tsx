@@ -40,7 +40,7 @@ export const Hero = () => {
               <p className="font-light text-2xl max-w-xl">{"HinterBuild has the team to create and manage your GenAI Applications"}</p>
               <div className="flex mt-4 gap-8 items-center">
                 <Button className="font-bold w-56 h-12 text-lg ">Contact Now</Button>
-                <Button className="font-bold w-56 h-12 text-lg text-primary bg-white">Services</Button>
+                <Button className="font-bold w-56 h-12 text-lg" variant={"secondary"}>Services</Button>
               </div>
             </div>
             <div className="flex flex-col flex-1 gap-4">
