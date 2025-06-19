@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+// import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React, { useState } from 'react';
 
 type Carousel3DProps = {
@@ -17,17 +17,17 @@ export const Carousel3D = ({items}: Carousel3DProps) => {
     // "bg-gradient-to-br from-indigo-500 to-purple-600",
   ];
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % items.length);
-  };
+  // const nextSlide = () => {
+  //   setCurrentIndex((prev) => (prev + 1) % items.length);
+  // };
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
-  };
+  // const prevSlide = () => {
+  //   setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+  // };
 
   const getItemStyle = (index: number) => {
     const diff = index - currentIndex;
-    const absDistance = Math.abs(diff);
+    // const absDistance = Math.abs(diff);
     
     // Base styles for all items
     let transform = '';

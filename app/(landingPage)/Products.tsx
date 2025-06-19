@@ -17,7 +17,7 @@ export const Products = () => {
           </p>
         </header>
 
-        <ProductCarousel products={Array.from({length: 8}, (_, i) => products[0])} />
+        <ProductCarousel products={Array.from({length: 8}, () => products[0])} />
       </div>
     </section>
   )

@@ -1,7 +1,6 @@
 'use client'
 
 import { Carousel3D } from './Carousel3D'
-import Image from 'next/image'
 import { ProductType } from "@/lib/constants/products"
 
 type ProductCarouselProps = {
