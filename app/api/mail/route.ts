@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json()
 
   try {
-    await sendMail(email, `Mail from ${name}`, message)
+    await sendMail(process.env.GMAIL_USER!, `Mail from ${name}`, `${message}\n\nMail:\n${email}`)
     return NextResponse.json({ message: "Mail Sent!" })
   } catch (error) {
     console.log(error)

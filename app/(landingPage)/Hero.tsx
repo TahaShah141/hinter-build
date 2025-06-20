@@ -28,7 +28,14 @@ const Navbar = () => {
 
 export const Hero = () => {
   return (
-    <div className="min-h-screen relative flex flex-col text-white bg-gradient-to-r from-dark to-primary/70">
+    // <div className="min-h-screen relative flex flex-col text-white bg-gradient-to-r from-dark to-primary/70">
+    <section className="py-16 min-h-screen flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative">
+      {/* Enhanced background decorations */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl -translate-x-1/2" />
+      
       <div className="absolute inset-0 bg-grid">
         <div className="absolute inset-12 flex flex-col gap-32">
           <Navbar />
@@ -81,6 +88,7 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
+    // </div>
   )
 }
