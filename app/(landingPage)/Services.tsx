@@ -1,9 +1,6 @@
-import Marquee from "react-fast-marquee";
-import { ServiceType } from "@/lib/constants/services"
+import { ServiceType, services } from "@/lib/constants/services"
 
-type ServicesProps = {
-  services: ServiceType[]
-}
+import Marquee from "react-fast-marquee";
 
 const ServiceImage = ({name, src}: ServiceType) => {
   return (
@@ -16,7 +13,8 @@ const ServiceImage = ({name, src}: ServiceType) => {
   )
 }
 
-export const Services = ({services}: ServicesProps) => {
+export const Services = () => {
+
   return (
     <div className="min-h-96 py-10 flex flex-col gap-8 text-white bg-gradient-to-r from-dark to-primary/70">
       <header className="text-center  relative">

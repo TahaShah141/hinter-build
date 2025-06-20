@@ -1,11 +1,14 @@
-// import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import React, { useState } from 'react';
 
 type Carousel3DProps = {
   items: React.ReactNode[]
+  rotated?: boolean
+  navigation?: boolean
+  transparent?: boolean
 }
 
-export const Carousel3D = ({items}: Carousel3DProps) => {
+export const Carousel3D = ({items, rotated=false, navigation=false, transparent=true}: Carousel3DProps) => {
   const [currentIndex, setCurrentIndex] = useState(2);
 
   const colors: string[] = [
@@ -17,15 +20,19 @@ export const Carousel3D = ({items}: Carousel3DProps) => {
     // "bg-gradient-to-br from-indigo-500 to-purple-600",
   ];
 
-  // const nextSlide = () => {
-  //   setCurrentIndex((prev) => (prev + 1) % items.length);
-  // };
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % items.length);
+  };
 
-  // const prevSlide = () => {
-  //   setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
-  // };
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
+  };
 
   const getItemStyle = (index: number) => {
+    const screenWidth = typeof window !== 'undefined' ? window.innerWidth : 1024;
+    const baseX = screenWidth < 640 ? 120 : screenWidth < 768 ? 180 : screenWidth < 1024 ? 240 : 300;
+    const baseZ = screenWidth < 640 ? 80 : screenWidth < 768 ? 100 : screenWidth < 1024 ? 120 : 150;
+
     const diff = index - currentIndex;
     // const absDistance = Math.abs(diff);
     
@@ -37,40 +44,40 @@ export const Carousel3D = ({items}: Carousel3DProps) => {
     
     if (diff === 0) {
       // Center item
-      transform = 'translateX(0) translateZ(0) rotateY(0deg)';
+      transform = `translateX(0) translateZ(0) ${rotated ? "rotateY(0deg)" : ""}`;
       zIndex = 50;
       scale = 1;
-      opacity = 1;
+      opacity = transparent ? 1 : 1;
     } else if (diff === -1 || (diff === items.length - 1 && currentIndex === 0)) {
       // Left item
-      transform = 'translateX(-300px) translateZ(-150px) rotateY(45deg)';
+      transform = `translateX(-${baseX}px) translateZ(-${baseZ}px) ${rotated ? "rotateY(45deg)" : ""}`;
       zIndex = 40;
       scale = 0.8;
-      opacity = 0.7;
+      opacity = transparent ? 0.7 : 1;
     } else if (diff === 1 || (diff === -(items.length - 1) && currentIndex === items.length - 1)) {
       // Right item
-      transform = 'translateX(300px) translateZ(-150px) rotateY(-45deg)';
+      transform = `translateX(${baseX}px) translateZ(-${baseZ}px) ${rotated ? "rotateY(-45deg)" : ""}`;
       zIndex = 40;
       scale = 0.8;
-      opacity = 0.7;
+      opacity = transparent ? 0.7 : 1;
     } else if (diff === -2 || (diff >= 3)) {
       // Far left item
-      transform = 'translateX(-600px) translateZ(-250px) rotateY(60deg)';
+      transform = `translateX(-${baseX * 2}px) translateZ(-${baseZ + 100}px) ${rotated ? "rotateY(60deg)" : ""}`;
       zIndex = 30;
       scale = 0.6;
-      opacity = 0.4;
+      opacity = transparent ? 0.4 : 1;
     } else if (diff === 2 || (diff <= -3)) {
       // Far right item
-      transform = 'translateX(600px) translateZ(-250px) rotateY(-60deg)';
+      transform = `translateX(${baseX * 2}px) translateZ(-${baseZ + 100}px) ${rotated ? "rotateY(-60deg)" : ""}`;
       zIndex = 30;
       scale = 0.6;
-      opacity = 0.4;
+      opacity = transparent ? 0.4 : 1;
     } else {
       // Hidden items
-      transform = 'translateX(800px) translateZ(-400px) rotateY(90deg)';
+      transform = `translateX(${baseX * 3}px) translateZ(-${baseZ + 200}px) ${rotated ? "rotateY(90deg)" : ""}`;
       zIndex = 10;
       scale = 0.4;
-      opacity = 0;
+      opacity = transparent ? 0 : 1;
     }
 
     return {
@@ -92,7 +99,7 @@ export const Carousel3D = ({items}: Carousel3DProps) => {
           {items.map((item, index) => (
             <div
               key={index}
-              className={`absolute overflow-hidden w-[800px] h-[700px] rounded-2xl shadow-2xl cursor-pointer transition-all duration-700 ease-in-out ${colors[index % colors.length]}`}
+              className={`absolute overflow-hidden w-[300px] sm:w-[500px] md:w-[600px] lg:w-[700px] xl:w-[800px] rounded-2xl shadow-2xl cursor-pointer transition-all duration-700 ease-in-out ${colors[index % colors.length]}`}
               style={getItemStyle(index)}
               onClick={() => setCurrentIndex(index)}
             >
@@ -102,22 +109,24 @@ export const Carousel3D = ({items}: Carousel3DProps) => {
         </div>
 
         {/* Navigation Buttons */}
-        {/* <button
+        {navigation && <>
+        <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110"
-        >
+          >
           <ChevronLeft className="w-6 h-6 text-black" />
         </button>
         
         <button
           onClick={nextSlide}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-3 transition-all duration-300 hover:scale-110"
-        >
+          >
           <ChevronRight className="w-6 h-6 text-black" />
-        </button> */}
+        </button>
+        </>}
 
         {/* Dots Indicator */}
-        <div className="flex justify-center space-x-2 mt-8">
+        <div className="flex justify-center space-x-2">
           {items.map((_, index) => (
             <button
               key={index}
