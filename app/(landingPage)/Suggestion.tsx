@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { SlidingDiv } from "@/components/custom/SlidingDiv"
 
 export const Suggestion = () => {
   return (
-    <div className="py-10 flex flex-col items-center gap-8 text-white bg-gradient-to-r from-dark to-primary/70">
+    <SlidingDiv direction="top" px={50} className="py-10 flex flex-col items-center gap-8 text-white bg-gradient-to-r from-dark to-primary/70">
       <header className="text-center  relative">
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 relative inline-block">
           Automation Ideas
@@ -17,6 +18,6 @@ export const Suggestion = () => {
         <Input className="w-full max-w-lg bg-gradient-to-br from-white/80 to-white/90 text-black border border-white/20 backdrop-blur-md placeholder:text-black/50" placeholder="Your Idea..." />
         <Button className="bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md placeholder:text-white/25">Submit</Button>
       </div>
-    </div>
+    </SlidingDiv>
   )
 }

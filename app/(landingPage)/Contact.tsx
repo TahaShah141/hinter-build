@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { SlidingDiv } from "@/components/custom/SlidingDiv"
 
 export const Contact = () => {
   return (
-    <div className="py-10 flex flex-col items-center gap-8 text-white bg-gradient-to-r from-dark to-primary/70">
+    <SlidingDiv direction="top" px={50} className="py-10 flex flex-col items-center gap-8 text-white bg-gradient-to-r from-dark to-primary/70">
       <header className="text-center  relative">
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 relative inline-block">
           Contact Us
@@ -18,6 +19,6 @@ export const Contact = () => {
         <Input className="w-full max-w-md bg-gradient-to-br from-white/80 to-white/90 text-black border border-white/20 backdrop-blur-md placeholder:text-black/50" placeholder="Message" />
         <Button className="bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md placeholder:text-white/25">Send</Button>
       </div>
-    </div>
+    </SlidingDiv>
   )
 }

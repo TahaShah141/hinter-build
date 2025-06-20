@@ -3,6 +3,8 @@
 import { TechnologyType, technologies } from "@/lib/constants/technologies"
 import { useRef, useState } from "react"
 
+import { SlidingDiv } from "@/components/custom/SlidingDiv"
+
 const TechnologyCard = ({ name, desc, src, index }: TechnologyType & { index: number }) => {
   const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
   const cardRef = useRef<HTMLDivElement>(null)
@@ -17,44 +19,46 @@ const TechnologyCard = ({ name, desc, src, index }: TechnologyType & { index: nu
   }
 
   return (
-    <div 
-      ref={cardRef}
-      className="group relative bg-white rounded-xl p-10 text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105 shadow-lg hover:shadow-xl"
-      style={{
-        animationDelay: `${index * 0.1}s`,
-        animation: 'fadeInUp 0.5s ease-out backwards'
-      }}
-      onMouseMove={handleMouseMove}
-    >
-      {/* Gradient border effect */}
-      <div className="absolute inset-0 rounded-xl p-0.5 bg-gradient-to-br from-blue-600 to-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10">
-        <div className="w-full h-full bg-white rounded-xl"></div>
-      </div>
-      
-      {/* Mouse follow effect */}
+    <SlidingDiv repeat direction="bottom" delay={0.1 * index}>
       <div 
-        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+        ref={cardRef}
+        className="group relative bg-white rounded-xl p-10 text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105 shadow-lg hover:shadow-xl"
         style={{
-          background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), transparent 40%)`
+          animationDelay: `${index * 0.1}s`,
+          animation: 'fadeInUp 0.5s ease-out backwards'
         }}
-      ></div>
-      
-      <div className="relative z-10">
-        <div className="mb-4 md:mb-6 lg:mb-8 inline-block animate-float">
-          <img 
-            src={src} 
-            className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 transition-all duration-300 group-hover:scale-110" 
-            alt={name}
-          />
+        onMouseMove={handleMouseMove}
+        >
+        {/* Gradient border effect */}
+        <div className="absolute inset-0 rounded-xl p-0.5 bg-gradient-to-br from-blue-600 to-slate-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10">
+          <div className="w-full h-full bg-white rounded-xl"></div>
         </div>
-        <h3 className="font-semibold text-lg md:text-xl text-slate-800 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
-          {name}
-        </h3>
-        <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-[240px] md:max-w-[280px] mx-auto opacity-90 group-hover:opacity-100 group-hover:text-slate-800 transition-all duration-300">
-          {desc}
-        </p>
+        
+        {/* Mouse follow effect */}
+        <div 
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+          style={{
+            background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), transparent 40%)`
+          }}
+          ></div>
+        
+        <div className="relative z-10">
+          <div className="mb-4 md:mb-6 lg:mb-8 inline-block animate-float">
+            <img 
+              src={src} 
+              className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 transition-all duration-300 group-hover:scale-110" 
+              alt={name}
+              />
+          </div>
+          <h3 className="font-semibold text-lg md:text-xl text-slate-800 mb-3 md:mb-4 lg:mb-6 transition-colors duration-300">
+            {name}
+          </h3>
+          <p className="text-slate-600 text-sm md:text-base leading-relaxed max-w-[240px] md:max-w-[280px] mx-auto opacity-90 group-hover:opacity-100 group-hover:text-slate-800 transition-all duration-300">
+            {desc}
+          </p>
+        </div>
       </div>
-    </div>
+    </SlidingDiv>
   )
 }
 
