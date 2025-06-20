@@ -101,7 +101,7 @@ export const Contact = () => {
           </div>
 
           <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
-            Ready to start your next project? Drop us a message and we'll get back to you faster than you can say "innovation"!
+            {`Ready to start your next project? Drop us a message and we'll get back to you faster than you can say "innovation"!`}
           </p>
 
           {/* Enhanced contact stats */}
@@ -130,7 +130,7 @@ export const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Enhanced Name Input */}
                 <div className="relative group">
-                  <label className="block text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                  <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
                     <User className="w-4 h-4" />
                     Your Name
                   </label>
@@ -152,7 +152,7 @@ export const Contact = () => {
 
                 {/* Enhanced Email Input */}
                 <div className="relative group">
-                  <label className="block text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                  <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
                     <Mail className="w-4 h-4" />
                     Email Address
                   </label>
@@ -176,7 +176,7 @@ export const Contact = () => {
 
               {/* Enhanced Message Input */}
               <div className="relative group">
-                <label className="block text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
                   Your Message
                 </label>
@@ -238,7 +238,7 @@ export const Contact = () => {
                     </div>
                     <div>
                       <p className="font-bold text-lg">Thank you for reaching out!</p>
-                      <p className="text-green-600">Your message has been sent successfully. We'll get back to you within 24 hours.</p>
+                      <p className="text-green-600">{"Your message has been sent successfully. We'll get back to you within 24 hours."}</p>
                     </div>
                   </div>
                 </div>
@@ -285,7 +285,7 @@ export const Contact = () => {
                 <MapPin className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">Global Reach</h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">Serving clients worldwide with local expertise. No matter where you are, we're here to help you succeed.</p>
+              <p className="text-neutral-300 text-center leading-relaxed font-medium">{"Serving clients worldwide with local expertise. No matter where you are, we're here to help you succeed."}</p>
             </div>
           </div>
         </SlidingDiv>
@@ -297,7 +297,7 @@ export const Contact = () => {
               Prefer Direct Contact?
             </h3>
             <p className="text-neutral-300 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-              Sometimes a conversation is worth a thousand emails. Let's connect directly!
+              {"Sometimes a conversation is worth a thousand emails. Let's connect directly!"}
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

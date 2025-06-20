@@ -167,7 +167,7 @@ export const Technologies = () => {
           </p>
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
             <Zap className="w-5 h-5" />
-            Let's Build Something Amazing
+            {"Let's Build Something Amazing"}
           </div>
         </div>
       </div>

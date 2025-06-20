@@ -61,7 +61,7 @@ export const ContactForm = () => {
             Contact Us
           </DialogTitle>
           <DialogDescription className="text-gray-600 text-base mt-2">
-            Drop a message and we'll get back to you ASAP!
+            {"Drop a message and we'll get back to you ASAP!"}
           </DialogDescription>
           <div className="mx-auto w-16 h-1 bg-gradient-to-r from-primary to-primary/70 rounded-full mt-3"></div>
         </DialogHeader>
