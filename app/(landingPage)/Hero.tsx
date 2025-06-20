@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { ContactForm } from "@/components/custom/ContactForm"
 import { Input } from "@/components/ui/input"
 import { SlidingDiv } from "@/components/custom/SlidingDiv"
 
@@ -40,7 +41,8 @@ export const Hero = () => {
               <p className="text-4xl">{"We've got you covered"}</p>
               <p className="font-light text-2xl max-w-xl">{"HinterBuild has the team to create and manage your GenAI Applications"}</p>
               <div className="flex mt-4 gap-8 items-center">
-                <Button className="font-bold w-56 h-12 text-lg ">Contact Now</Button>
+                {/* <Button className="font-bold w-56 h-12 text-lg ">Contact Now</Button> */}
+                <ContactForm />
                 <Button className="font-bold w-56 h-12 text-lg" variant={"secondary"}>Services</Button>
               </div>
             </SlidingDiv>
