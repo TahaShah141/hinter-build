@@ -1,7 +1,7 @@
 "use client";
 
-import { Calendar, CheckCircle, Clock, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, CheckCircle, Clock } from "lucide-react";
+
 import { SlidingDiv } from "@/components/custom/SlidingDiv";
 
 const CALL_TO_ACTION_TAGS = [
@@ -42,8 +42,7 @@ const Calendly = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-400 rounded-full animate-pulse"></div>
           </div>
           <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium mb-8">
-            Ready to transform your business? Let's discuss how we can help you
-            achieve your goals with our cutting-edge solutions.
+            {"Ready to transform your business? Let's discuss how we can help you achieve your goals with our cutting-edge solutions."}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-8 mb-12">
             {CALL_TO_ACTION_TAGS.map((text, i) => (
