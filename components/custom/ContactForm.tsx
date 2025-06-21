@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Dialog,
@@ -7,54 +7,56 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { Mail, Send } from "lucide-react"
+} from "@/components/ui/dialog";
+import { Mail, Send } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 export const ContactForm = () => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: ""
-  })
+    message: "",
+  });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    fetch('/api/mail', {
+    e.preventDefault();
+    fetch("/api/mail", {
       method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(formData)
-    })
-    setFormData({ name: "", email: "", message: "" })
-    setIsOpen(false)
-  }
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+    setFormData({ name: "", email: "", message: "" });
+    setIsOpen(false);
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button 
+        <Button
           size="lg"
-          className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 w-56 h-12 text-lg"
+          className=" bg-gradient-to-r from-[#0A5EB0] to-[#2A3335]  hover:from-primary/90 hover:to-primary/70 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 w-56 h-12 text-lg"
         >
           <Mail className="w-5 h-5" />
           Get In Touch
         </Button>
       </DialogTrigger>
-      
+
       <DialogContent className="sm:max-w-[500px] bg-gradient-to-br from-white to-gray-50/90 border border-gray-200/50 backdrop-blur-md">
         <DialogHeader className="text-center pb-4">
           <DialogTitle className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-dark to-primary bg-clip-text text-transparent">
@@ -65,7 +67,7 @@ export const ContactForm = () => {
           </DialogDescription>
           <div className="mx-auto w-16 h-1 bg-gradient-to-r from-primary to-primary/70 rounded-full mt-3"></div>
         </DialogHeader>
-        
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="name" className="text-sm font-medium text-gray-700">
@@ -81,9 +83,12 @@ export const ContactForm = () => {
               className="bg-white/80 border border-gray-200/50 backdrop-blur-sm focus:border-primary/50 focus:ring-primary/20"
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-medium text-gray-700">
+            <Label
+              htmlFor="email"
+              className="text-sm font-medium text-gray-700"
+            >
               Email
             </Label>
             <Input
@@ -97,9 +102,12 @@ export const ContactForm = () => {
               className="bg-white/80 border border-gray-200/50 backdrop-blur-sm focus:border-primary/50 focus:ring-primary/20"
             />
           </div>
-          
+
           <div className="space-y-2">
-            <Label htmlFor="message" className="text-sm font-medium text-gray-700">
+            <Label
+              htmlFor="message"
+              className="text-sm font-medium text-gray-700"
+            >
               Message
             </Label>
             <Textarea
@@ -113,7 +121,7 @@ export const ContactForm = () => {
               className="bg-white/80 border border-gray-200/50 backdrop-blur-sm focus:border-primary/50 focus:ring-primary/20 resize-none"
             />
           </div>
-          
+
           <div className="flex gap-3 pt-4">
             <Button
               type="button"
@@ -123,7 +131,7 @@ export const ContactForm = () => {
             >
               Cancel
             </Button>
-            <Button 
+            <Button
               type="submit"
               className="flex-1 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white font-semibold shadow-md hover:shadow-lg transition-all duration-300 flex items-center gap-2"
             >
@@ -134,5 +142,5 @@ export const ContactForm = () => {
         </form>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};

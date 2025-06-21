@@ -1,38 +1,57 @@
-"use client"
+"use client";
 
-import { AlertCircle, ArrowRight, Brain, CheckCircle, Lightbulb, Loader2, MessageSquare, Rocket, Send, Shield, Sparkles, Star, Target, Zap } from "lucide-react"
+import {
+  AlertCircle,
+  ArrowRight,
+  Brain,
+  CheckCircle,
+  Lightbulb,
+  Loader2,
+  MessageSquare,
+  Rocket,
+  Send,
+  Shield,
+  Sparkles,
+  Star,
+  Target,
+  Zap,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { SlidingDiv } from "@/components/custom/SlidingDiv"
-import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { SlidingDiv } from "@/components/custom/SlidingDiv";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 export const Suggestion = () => {
   const [formData, setFormData] = useState({
     idea: "",
     category: "",
-    description: ""
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+    description: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async () => {
-    if (!formData.idea.trim()) return
+    if (!formData.idea.trim()) return;
 
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
 
     try {
-      const response = await fetch('/api/mail', {
+      const response = await fetch("/api/mail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -40,44 +59,44 @@ export const Suggestion = () => {
           email: "-",
           message: `Automation Idea Submission:
           
-Category: ${formData.category || 'General'}
+Category: ${formData.category || "General"}
 Idea: ${formData.idea}
-Description: ${formData.description || 'No additional description provided'}`
-        })
-      })
+Description: ${formData.description || "No additional description provided"}`,
+        }),
+      });
 
       if (response.ok) {
-        setSubmitStatus('success')
-        setFormData({ idea: "", category: "", description: "" })
-        
+        setSubmitStatus("success");
+        setFormData({ idea: "", category: "", description: "" });
+
         // Reset success status after 3 seconds
         setTimeout(() => {
-          setSubmitStatus('idle')
-        }, 3000)
+          setSubmitStatus("idle");
+        }, 3000);
       } else {
-        setSubmitStatus('error')
+        setSubmitStatus("error");
         setTimeout(() => {
-          setSubmitStatus('idle')
-        }, 3000)
+          setSubmitStatus("idle");
+        }, 3000);
       }
     } catch (error) {
-      console.error("Error submitting idea:", error)
-      setSubmitStatus('error')
+      console.error("Error submitting idea:", error);
+      setSubmitStatus("error");
       setTimeout(() => {
-        setSubmitStatus('idle')
-      }, 3000)
+        setSubmitStatus("idle");
+      }, 3000);
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   const categories = [
     { value: "workflow", label: "Workflow Automation", icon: Zap },
     { value: "ai", label: "AI Integration", icon: Brain },
     { value: "business", label: "Business Process", icon: Target },
     { value: "productivity", label: "Productivity Tool", icon: Rocket },
-    { value: "other", label: "Other", icon: Lightbulb }
-  ]
+    { value: "other", label: "Other", icon: Lightbulb },
+  ];
 
   return (
     <section className="py-16 flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden">
@@ -86,10 +105,14 @@ Description: ${formData.description || 'No additional description provided'}`
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2" />
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl -translate-x-1/2" />
-      
+
       <div className="max-w-7xl mx-auto px-4">
         {/* Enhanced header section */}
-        <SlidingDiv direction="top" px={50} className="text-center relative z-10 mb-16">
+        <SlidingDiv
+          direction="top"
+          px={50}
+          className="text-center relative z-10 mb-16"
+        >
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="relative">
               <Lightbulb className="w-12 h-12 md:w-16 md:h-16 text-primary animate-spin-slow" />
@@ -109,7 +132,9 @@ Description: ${formData.description || 'No additional description provided'}`
           </div>
 
           <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
-            Have a brilliant automation idea? Share it with us and watch as we transform your vision into reality! Every great innovation starts with a single spark.
+            Have a brilliant automation idea? Share it with us and watch as we
+            transform your vision into reality! Every great innovation starts
+            with a single spark.
           </p>
 
           {/* Enhanced idea stats */}
@@ -143,25 +168,32 @@ Description: ${formData.description || 'No additional description provided'}`
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
                   {categories.map((category) => {
-                    const IconComponent = category.icon
+                    const IconComponent = category.icon;
                     return (
                       <button
                         key={category.value}
                         type="button"
-                        onClick={() => setFormData(prev => ({ ...prev, category: category.value }))}
+                        onClick={() =>
+                          setFormData((prev) => ({
+                            ...prev,
+                            category: category.value,
+                          }))
+                        }
                         className={`relative p-4 rounded-xl border-2 transition-all duration-300 flex flex-col items-center gap-2 text-sm font-medium ${
                           formData.category === category.value
-                            ? 'border-primary bg-primary/20 text-white shadow-lg scale-105'
-                            : 'border-white/30 bg-white/10 text-white/80 hover:border-white/50 hover:bg-white/15'
+                            ? "border-primary bg-primary/20 text-white shadow-lg scale-105"
+                            : "border-white/30 bg-white/10 text-white/80 hover:border-white/50 hover:bg-white/15"
                         }`}
                       >
                         <IconComponent className="w-6 h-6" />
-                        <span className="text-center leading-tight">{category.label}</span>
+                        <span className="text-center leading-tight">
+                          {category.label}
+                        </span>
                         {formData.category === category.value && (
                           <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                         )}
                       </button>
-                    )
+                    );
                   })}
                 </div>
               </div>
@@ -210,24 +242,24 @@ Description: ${formData.description || 'No additional description provided'}`
                 </div>
               </div>
 
-              {/* Enhanced Submit Button */}
               <div className="flex justify-center pt-4">
-                <Button 
+                {" "}
+                <Button
                   onClick={handleSubmit}
                   disabled={isSubmitting || !formData.idea.trim()}
-                  className="bg-gradient-to-r from-white/10 to-white/20 hover:from-white/20 hover:to-white/30 border border-white/30 backdrop-blur-md text-white font-bold px-12 py-4 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center gap-3 min-w-[200px] disabled:opacity-50 disabled:cursor-not-allowed text-lg group hover:scale-105"
+                  className="inline-flex items-center justify-center gap-3 w-56 py-5 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
                       <Loader2 className="w-6 h-6 animate-spin" />
                       Submitting Idea...
                     </>
-                  ) : submitStatus === 'success' ? (
+                  ) : submitStatus === "success" ? (
                     <>
                       <CheckCircle className="w-6 h-6" />
                       Idea Submitted!
                     </>
-                  ) : submitStatus === 'error' ? (
+                  ) : submitStatus === "error" ? (
                     <>
                       <AlertCircle className="w-6 h-6" />
                       Try Again
@@ -243,29 +275,39 @@ Description: ${formData.description || 'No additional description provided'}`
               </div>
 
               {/* Enhanced Status Messages */}
-              {submitStatus === 'success' && (
+              {submitStatus === "success" && (
                 <div className="mt-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl backdrop-blur-md shadow-lg">
                   <div className="flex items-center gap-3 text-green-700">
                     <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg">Your idea has been submitted!</p>
-                      <p className="text-green-600">Our expert team will review your automation idea and get back to you with implementation possibilities.</p>
+                      <p className="font-bold text-lg">
+                        Your idea has been submitted!
+                      </p>
+                      <p className="text-green-600">
+                        Our expert team will review your automation idea and get
+                        back to you with implementation possibilities.
+                      </p>
                     </div>
                   </div>
                 </div>
               )}
 
-              {submitStatus === 'error' && (
+              {submitStatus === "error" && (
                 <div className="mt-6 p-6 bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 rounded-2xl backdrop-blur-md shadow-lg">
                   <div className="flex items-center gap-3 text-red-700">
                     <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
                       <AlertCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <p className="font-bold text-lg">Oops! Something went wrong.</p>
-                      <p className="text-red-600">Please try again or contact us directly. Your ideas are valuable to us!</p>
+                      <p className="font-bold text-lg">
+                        Oops! Something went wrong.
+                      </p>
+                      <p className="text-red-600">
+                        Please try again or contact us directly. Your ideas are
+                        valuable to us!
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -281,30 +323,49 @@ Description: ${formData.description || 'No additional description provided'}`
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Creative Solutions</h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">We transform your innovative concepts into practical automation solutions that drive real business value.</p>
+              <h3 className="text-xl font-bold mb-3 text-white">
+                Creative Solutions
+              </h3>
+              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+                We transform your innovative concepts into practical automation
+                solutions that drive real business value.
+              </p>
             </div>
-            
+
             <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Rocket className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Rapid Prototyping</h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">Quick evaluation and prototype development to validate your ideas before full implementation.</p>
+              <h3 className="text-xl font-bold mb-3 text-white">
+                Rapid Prototyping
+              </h3>
+              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+                Quick evaluation and prototype development to validate your
+                ideas before full implementation.
+              </p>
             </div>
-            
+
             <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Full Implementation</h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">Complete development, testing, and deployment with ongoing support and optimization.</p>
+              <h3 className="text-xl font-bold mb-3 text-white">
+                Full Implementation
+              </h3>
+              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+                Complete development, testing, and deployment with ongoing
+                support and optimization.
+              </p>
             </div>
           </div>
         </SlidingDiv>
 
         {/* Additional inspiration section */}
-        <SlidingDiv direction="top" px={50} className="text-center relative mt-16 z-10">
+        <SlidingDiv
+          direction="top"
+          px={50}
+          className="text-center relative mt-16 z-10"
+        >
           <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               Need Inspiration?
@@ -312,23 +373,43 @@ Description: ${formData.description || 'No additional description provided'}`
             <p className="text-neutral-300 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
               Here are some popular automation ideas to spark your creativity!
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
               <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">📧 Email Automation</h4>
-                <p className="text-neutral-300 text-sm">Automated email responses, follow-ups, and customer onboarding sequences.</p>
+                <h4 className="font-semibold text-white mb-2">
+                  📧 Email Automation
+                </h4>
+                <p className="text-neutral-300 text-sm">
+                  Automated email responses, follow-ups, and customer onboarding
+                  sequences.
+                </p>
               </div>
               <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">📊 Data Processing</h4>
-                <p className="text-neutral-300 text-sm">Automated report generation, data synchronization, and analytics dashboards.</p>
+                <h4 className="font-semibold text-white mb-2">
+                  📊 Data Processing
+                </h4>
+                <p className="text-neutral-300 text-sm">
+                  Automated report generation, data synchronization, and
+                  analytics dashboards.
+                </p>
               </div>
               <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">🤖 AI Integration</h4>
-                <p className="text-neutral-300 text-sm">Chatbots, content generation, image processing, and intelligent decision making.</p>
+                <h4 className="font-semibold text-white mb-2">
+                  🤖 AI Integration
+                </h4>
+                <p className="text-neutral-300 text-sm">
+                  Chatbots, content generation, image processing, and
+                  intelligent decision making.
+                </p>
               </div>
               <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">⚡ Workflow Optimization</h4>
-                <p className="text-neutral-300 text-sm">Task scheduling, approval processes, and cross-platform integrations.</p>
+                <h4 className="font-semibold text-white mb-2">
+                  ⚡ Workflow Optimization
+                </h4>
+                <p className="text-neutral-300 text-sm">
+                  Task scheduling, approval processes, and cross-platform
+                  integrations.
+                </p>
               </div>
             </div>
           </div>
@@ -337,8 +418,12 @@ Description: ${formData.description || 'No additional description provided'}`
 
       <style jsx>{`
         @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         .animate-spin-slow {
@@ -346,5 +431,5 @@ Description: ${formData.description || 'No additional description provided'}`
         }
       `}</style>
     </section>
-  )
-}
+  );
+};

@@ -1,17 +1,21 @@
-"use client"
+"use client";
 
-import { ArrowRight, Play, Settings, Sparkles } from "lucide-react"
-import { ServiceType, services } from "@/lib/constants/services"
+import { ArrowRight, Play, Settings, Sparkles } from "lucide-react";
+import { ServiceType, services } from "@/lib/constants/services";
 
 import Marquee from "react-fast-marquee";
 import { SlidingDiv } from "@/components/custom/SlidingDiv";
-import { useState } from "react"
+import { useState } from "react";
 
-const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
-  const [isHovered, setIsHovered] = useState(false)
+const ServiceImage = ({
+  name,
+  src,
+  index,
+}: ServiceType & { index: number }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
+    <div
       className="group relative bg-gradient-to-br from-white/95 to-white/90 backdrop-blur-sm drop-shadow-2xl p-1 rounded-2xl transition-all duration-500 hover:scale-105 hover:drop-shadow-3xl"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -24,15 +28,15 @@ const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
       <div className="relative h-96 w-80 rounded-xl overflow-hidden">
         {/* Image with overlay effects */}
         <div className="relative h-full w-full">
-          <img 
-            src={src} 
-            className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110" 
+          <img
+            src={src}
+            className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110"
             alt={name}
           />
-          
+
           {/* Gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-all duration-500"></div>
-          
+
           {/* Spotlight effect */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-transparent to-purple-500/20 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
         </div>
@@ -44,7 +48,7 @@ const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
             <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
               {name}
             </h3>
-            
+
             {/* Subtitle/description that appears on hover */}
             <p className="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 delay-100 leading-relaxed">
               Professional {name.toLowerCase()} solutions tailored to your needs
@@ -69,10 +73,10 @@ const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
                 key={i}
                 className="absolute w-1 h-1 bg-white/60 rounded-full animate-float-up"
                 style={{
-                  left: `${20 + (i * 10)}%`,
-                  top: `${60 + (i * 5)}%`,
+                  left: `${20 + i * 10}%`,
+                  top: `${60 + i * 5}%`,
                   animationDelay: `${i * 0.2}s`,
-                  animationDuration: `${2 + (i * 0.2)}s`
+                  animationDuration: `${2 + i * 0.2}s`,
                 }}
               />
             ))}
@@ -85,8 +89,8 @@ const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const Services = () => {
   return (
@@ -116,7 +120,8 @@ export const Services = () => {
         </div>
 
         <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium">
-          Custom software solutions crafted with modern frameworks and technologies to drive your business forward.
+          Custom software solutions crafted with modern frameworks and
+          technologies to drive your business forward.
         </p>
 
         {/* Service stats */}
@@ -133,12 +138,7 @@ export const Services = () => {
         </div>
       </SlidingDiv>
 
-      <Marquee 
-        pauseOnHover={true} 
-        gradient={false} 
-        speed={40}
-        className="py-4"
-      >
+      <Marquee pauseOnHover={true} gradient={false} speed={40} className="py-4">
         {services.map((service, index) => (
           <div key={index} className="mr-6">
             <ServiceImage {...service} index={index} />
@@ -147,11 +147,15 @@ export const Services = () => {
       </Marquee>
 
       {/* Call to action */}
-      <SlidingDiv direction="top" px={50} className="text-center relative z-10 mt-8">
+      <SlidingDiv
+        direction="top"
+        px={50}
+        className="text-center relative z-10 mt-8"
+      >
         <p className="text-neutral-300 text-lg md:text-xl font-medium mb-6">
           Ready to transform your ideas into reality?
         </p>
-        <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 cursor-pointer group">
+        <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 cursor-pointer group">
           <Settings className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
           <span>Start Your Project</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -160,8 +164,12 @@ export const Services = () => {
 
       <style jsx>{`
         @keyframes gradient-rotate {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
         }
 
         @keyframes float-up {
@@ -179,18 +187,30 @@ export const Services = () => {
         }
 
         @keyframes slide-right {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
         }
 
         @keyframes slide-left {
-          0% { transform: translateX(100%); }
-          100% { transform: translateX(-100%); }
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
         }
 
         @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         .animate-gradient-rotate {
@@ -214,5 +234,5 @@ export const Services = () => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};

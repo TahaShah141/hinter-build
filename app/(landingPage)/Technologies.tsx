@@ -1,75 +1,81 @@
-'use client'
+"use client";
 
-import { Code2, Sparkles, Zap } from "lucide-react"
-import { TechnologyType, technologies } from "@/lib/constants/technologies"
-import { useRef, useState } from "react"
+import { Code2, Sparkles, Zap } from "lucide-react";
+import { TechnologyType, technologies } from "@/lib/constants/technologies";
+import { useRef, useState } from "react";
 
-import { SlidingDiv } from "@/components/custom/SlidingDiv"
+import { SlidingDiv } from "@/components/custom/SlidingDiv";
 
-const TechnologyCard = ({ name, desc, src, index }: TechnologyType & { index: number }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 })
-  const [isHovered, setIsHovered] = useState(false)
-  const cardRef = useRef<HTMLDivElement>(null)
+const TechnologyCard = ({
+  name,
+  desc,
+  src,
+  index,
+}: TechnologyType & { index: number }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 50, y: 50 });
+  const [isHovered, setIsHovered] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / cardRef.current.clientWidth) * 100
-    const y = ((e.clientY - rect.top) / cardRef.current.clientHeight) * 100
-    setMousePosition({ x, y })
-  }
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / cardRef.current.clientWidth) * 100;
+    const y = ((e.clientY - rect.top) / cardRef.current.clientHeight) * 100;
+    setMousePosition({ x, y });
+  };
 
   return (
     <SlidingDiv repeat direction="bottom" delay={0.1 * index}>
-      <div 
+      <div
         ref={cardRef}
         className="group relative bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-8 text-center cursor-pointer transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20"
         style={{
           animationDelay: `${index * 0.1}s`,
-          animation: 'fadeInUp 0.6s ease-out backwards'
+          animation: "fadeInUp 0.6s ease-out backwards",
         }}
         onMouseMove={handleMouseMove}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
-        >
+      >
         {/* Animated gradient border */}
         <div className="absolute inset-0 rounded-2xl p-[2px] bg-gradient-to-br from-blue-500 via-purple-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10 animate-gradient-x">
           <div className="w-full h-full bg-gradient-to-br from-white/95 to-white/90 rounded-2xl"></div>
         </div>
-        
+
         {/* Mouse follow spotlight effect */}
-        <div 
+        <div
           className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none"
           style={{
-            background: `radial-gradient(circle 150px at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.1) 40%, transparent 70%)`
+            background: `radial-gradient(circle 150px at ${mousePosition.x}% ${mousePosition.y}%, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.1) 40%, transparent 70%)`,
           }}
         ></div>
 
         {/* Floating particles effect */}
         <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-          {isHovered && Array.from({ length: 6 }).map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-float-particle opacity-60"
-              style={{
-                left: `${20 + (i * 15)}%`,
-                top: `${30 + (i * 10)}%`,
-                animationDelay: `${i * 0.2}s`,
-                animationDuration: `${2 + (i * 0.3)}s`
-              }}
-            />
-          ))}
+          {isHovered &&
+            Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-float-particle opacity-60"
+                style={{
+                  left: `${20 + i * 15}%`,
+                  top: `${30 + i * 10}%`,
+                  animationDelay: `${i * 0.2}s`,
+                  animationDuration: `${2 + i * 0.3}s`,
+                }}
+              />
+            ))}
         </div>
-        
+
         <div className="relative z-10">
           {/* Icon container with glow effect */}
           <div className="mb-6 inline-block relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl blur-md opacity-0 group-hover:opacity-50 transition-all duration-500 scale-110"></div>
             <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100 group-hover:border-blue-200 transition-all duration-300 animate-float">
-              <img 
-                src={src} 
-                className="h-10 w-10 md:h-12 md:w-12 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-lg filter" 
+              <img
+                src={src}
+                className="h-10 w-10 md:h-12 md:w-12 transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-lg filter"
                 alt={name}
               />
             </div>
@@ -90,8 +96,8 @@ const TechnologyCard = ({ name, desc, src, index }: TechnologyType & { index: nu
         </div>
       </div>
     </SlidingDiv>
-  )
-}
+  );
+};
 
 export const Technologies = () => {
   return (
@@ -100,22 +106,25 @@ export const Technologies = () => {
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-400/15 to-blue-400/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div
+          className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-400/15 to-blue-400/15 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        ></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-blue-300/10 to-purple-300/10 rounded-full blur-3xl animate-spin-slow"></div>
-        
+
         {/* Grid pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `
               linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
               linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
             `,
-            backgroundSize: '50px 50px'
+            backgroundSize: "50px 50px",
           }}
         ></div>
       </div>
-      
+
       <div className="max-w-8xl mx-auto animate-fadeInUp px-4 relative z-10">
         {/* Enhanced header section */}
         <header className="text-center mb-16 md:mb-24 relative">
@@ -128,7 +137,7 @@ export const Technologies = () => {
               Technologies We Use
             </h2>
           </div>
-          
+
           {/* Animated underline */}
           <div className="relative mx-auto w-20 md:w-32 h-1 mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
@@ -136,14 +145,17 @@ export const Technologies = () => {
           </div>
 
           <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium">
-            Leveraging cutting-edge tools and frameworks to build robust, scalable solutions that drive innovation
+            Leveraging cutting-edge tools and frameworks to build robust,
+            scalable solutions that drive innovation
           </p>
 
           {/* Stats or highlights */}
           <div className="flex justify-center items-center gap-8 mt-8 text-sm md:text-base">
             <div className="flex items-center gap-2 text-slate-600">
               <Zap className="w-5 h-5 text-blue-500" />
-              <span className="font-semibold">{technologies.length}+ Technologies</span>
+              <span className="font-semibold">
+                {technologies.length}+ Technologies
+              </span>
             </div>
             <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
             <div className="flex items-center gap-2 text-slate-600">
@@ -165,7 +177,8 @@ export const Technologies = () => {
           <p className="text-slate-600 text-lg md:text-xl font-medium mb-6">
             Ready to leverage these technologies for your project?
           </p>
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
+
+          <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer">
             <Zap className="w-5 h-5" />
             {"Let's Build Something Amazing"}
           </div>
@@ -185,7 +198,8 @@ export const Technologies = () => {
         }
 
         @keyframes float {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px);
           }
           50% {
@@ -194,7 +208,8 @@ export const Technologies = () => {
         }
 
         @keyframes float-particle {
-          0%, 100% {
+          0%,
+          100% {
             transform: translateY(0px) rotate(0deg);
             opacity: 0;
           }
@@ -205,7 +220,8 @@ export const Technologies = () => {
         }
 
         @keyframes gradient-x {
-          0%, 100% {
+          0%,
+          100% {
             background-size: 200% 200%;
             background-position: left center;
           }
@@ -245,5 +261,5 @@ export const Technologies = () => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};

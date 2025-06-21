@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import { ArrowRight, Package, Shield, Sparkles, Star, Zap } from 'lucide-react'
-
-import { ProductCarousel } from '@/components/custom/ProductCarousel'
-import React from 'react'
-import { SlidingDiv } from '@/components/custom/SlidingDiv'
-import { products } from '@/lib/constants/products'
+import { ArrowRight, Package, Shield, Sparkles, Star, Zap } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ProductCarousel } from "@/components/custom/ProductCarousel";
+import React from "react";
+import { SlidingDiv } from "@/components/custom/SlidingDiv";
+import { products } from "@/lib/constants/products";
 
 export const Products = () => {
   return (
     <section className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         {/* Enhanced header section */}
-        <SlidingDiv direction='top' px={50} className="text-center relative">
+        <SlidingDiv direction="top" px={50} className="text-center relative">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="relative">
               <Package className="w-12 h-12 md:w-16 md:h-16 text-blue-500 animate-spin-slow" />
@@ -32,7 +32,8 @@ export const Products = () => {
           </div>
 
           <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
-            Discover our premium collection of innovative products designed to elevate your experience and exceed your expectations.
+            Discover our premium collection of innovative products designed to
+            elevate your experience and exceed your expectations.
           </p>
 
           {/* Enhanced product stats */}
@@ -59,54 +60,75 @@ export const Products = () => {
               <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">Quality Guarantee</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Every product undergoes rigorous testing to ensure the highest standards of quality and reliability.</p>
+              <h3 className="text-lg font-semibold mb-2 text-slate-800">
+                Quality Guarantee
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Every product undergoes rigorous testing to ensure the highest
+                standards of quality and reliability.
+              </p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200 hover:border-purple-400 hover:shadow-lg transition-all duration-300 group">
               <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Star className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">Award Winning</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Our products have received industry recognition for innovation, design, and customer satisfaction.</p>
+              <h3 className="text-lg font-semibold mb-2 text-slate-800">
+                Award Winning
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Our products have received industry recognition for innovation,
+                design, and customer satisfaction.
+              </p>
             </div>
-            
+
             <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300 group">
               <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">Instant Impact</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">Experience immediate results with products designed for maximum efficiency and user satisfaction.</p>
+              <h3 className="text-lg font-semibold mb-2 text-slate-800">
+                Instant Impact
+              </h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Experience immediate results with products designed for maximum
+                efficiency and user satisfaction.
+              </p>
             </div>
           </div>
         </SlidingDiv>
 
         {/* Original carousel - untouched */}
-        <SlidingDiv direction='bottom' px={50}>
-          <ProductCarousel products={Array.from({length: 8}, () => products[0])} />
+        <SlidingDiv direction="bottom" px={50}>
+          <ProductCarousel
+            products={Array.from({ length: 8 }, () => products[0])}
+          />
         </SlidingDiv>
 
         {/* Enhanced call to action */}
-        <SlidingDiv direction='top' px={50} className="text-center relative mt-16">
+        <SlidingDiv
+          direction="top"
+          px={50}
+          className="text-center relative mt-16"
+        >
           <div className="bg-gradient-to-r from-slate-50 to-slate-100 rounded-3xl p-8 md:p-12 border border-slate-200 max-w-4xl mx-auto shadow-lg">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
               Ready to Explore Our Products?
             </h3>
             <p className="text-slate-600 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-              Browse our complete collection and find the perfect solution for your needs.
-            </p>
-            
+              Browse our complete collection and find the perfect solution for
+              your needs.
+            </p>{" "}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group">
+              <Button className="inline-flex items-center justify-center gap-3 w-56 py-6 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group">
                 <Package className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span>Browse Products</span>
+                Browse Products
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </div>
-              
-              <div className="inline-flex items-center gap-3 px-8 py-4 bg-white text-slate-700 rounded-full font-semibold border border-slate-300 hover:bg-slate-50 transition-all duration-300 hover:scale-105 cursor-pointer group">
+              </Button>
+
+              <Button className="inline-flex items-center justify-center gap-3 w-56 py-6 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer group">
                 <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                <span>View Catalog</span>
-              </div>
+                View Catalog
+              </Button>
             </div>
           </div>
         </SlidingDiv>
@@ -114,8 +136,12 @@ export const Products = () => {
 
       <style jsx>{`
         @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         .animate-spin-slow {
@@ -123,5 +149,5 @@ export const Products = () => {
         }
       `}</style>
     </section>
-  )
-}
+  );
+};
