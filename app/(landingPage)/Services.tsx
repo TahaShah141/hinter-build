@@ -40,7 +40,7 @@ const ServiceImage = ({name, src, index}: ServiceType & { index: number }) => {
         {/* Enhanced content overlay */}
         <div className="absolute inset-0 flex flex-col justify-end p-6">
           {/* Service name with enhanced styling */}
-          <div className="transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <div className="transform translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
             <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg">
               {name}
             </h3>
