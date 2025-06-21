@@ -94,7 +94,10 @@ const ServiceImage = ({
 
 export const Services = () => {
   return (
-    <section className="py-16 flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative">
+    <section
+      id="services"
+      className="py-16 flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative"
+    >
       {/* Enhanced background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />

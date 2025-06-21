@@ -1,7 +1,19 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/custom/ContactForm";
 import { Input } from "@/components/ui/input";
 import { SlidingDiv } from "@/components/custom/SlidingDiv";
+
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
 
 const Navbar = () => {
   return (
@@ -10,7 +22,10 @@ const Navbar = () => {
       px={50}
       className="flex gap-6 justify-between items-center"
     >
-      <div className="flex gap-6 items-center backdrop-blur-md">
+      <div
+        className="flex gap-6 items-center backdrop-blur-md cursor-pointer"
+        onClick={() => scrollToSection("hero")}
+      >
         <img src={"/logo.png"} className="h-8" />
         <h1 className="font-bold text-white text-3xl">
           Hinter
@@ -19,10 +34,25 @@ const Navbar = () => {
           </span>
         </h1>
       </div>
-      <div className="bg-gradient-to-br from-white/5 to-white/20 flex gap-12 px-6 rounded-xl text-sm font-semibold p-1 border border-white/20 backdrop-blur-md">
-        <p className="flex-1">Services</p>
-        <p className="flex-1">Products</p>
-        <p className="flex-1">Automations</p>
+      <div className="bg-gradient-to-br from-white/5 to-white/20 flex gap-12 px-6 rounded-full text-sm font-semibold p-1 border border-white/20 backdrop-blur-md">
+        <p
+          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          onClick={() => scrollToSection("services")}
+        >
+          Services
+        </p>
+        <p
+          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          onClick={() => scrollToSection("products")}
+        >
+          Products
+        </p>
+        <p
+          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          onClick={() => scrollToSection("automations")}
+        >
+          Automations
+        </p>
       </div>
       <div className="flex gap-4 items-center backdrop-blur-md">
         <div className="relative">
@@ -49,7 +79,8 @@ const Navbar = () => {
         </div>
         <Button
           size={"sm"}
-          className="text-sm font-bold drop-shadow-white/20 drop-shadow-md"
+          className="inline-flex items-center justify-center gap-3 w-fit px-5 py-5 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer "
+          onClick={() => scrollToSection("contact")}
         >
           {"Let's Chat"}
         </Button>
@@ -61,7 +92,10 @@ const Navbar = () => {
 export const Hero = () => {
   return (
     // <div className="min-h-screen relative flex flex-col text-white bg-gradient-to-r from-dark to-primary/70">
-    <section className="py-16 min-h-screen flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative">
+    <section
+      id="hero"
+      className="py-16 min-h-screen flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative"
+    >
       {/* Enhanced background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
@@ -93,6 +127,7 @@ export const Hero = () => {
                 <Button
                   className="font-bold w-56 h-12 text-lg"
                   variant={"secondary"}
+                  onClick={() => scrollToSection("services")}
                 >
                   Services
                 </Button>
