@@ -89,14 +89,13 @@ export const Contact = () => {
       window.open("mailto:contact@company.com", "_self");
     }
   };
-
   return (
-    <section className="py-16 flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden">
+    <section className="py-16 flex flex-col items-center gap-12 text-slate-800 bg-white relative overflow-hidden">
       {/* Enhanced background decorations */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2" />
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl -translate-x-1/2" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-100/30 rounded-full blur-3xl translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-2xl -translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Enhanced header section */}
@@ -110,50 +109,46 @@ export const Contact = () => {
               <Mail className="w-12 h-12 md:w-16 md:h-16 text-blue-500 animate-spin-slow" />
               <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-purple-500 animate-pulse" />
               <div className="absolute -bottom-1 -left-1 w-3 h-3 bg-orange-400 rounded-full animate-ping"></div>
-            </div>
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white relative">
+            </div>{" "}
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-purple-600 bg-clip-text text-transparent relative">
               Contact Us
             </h2>
           </div>
-
           {/* Enhanced underline with multiple layers */}
           <div className="relative mx-auto w-24 md:w-36 h-1 mb-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-white to-white/60 rounded-full"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-white/80 rounded-full animate-pulse"></div>
-            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-3 bg-white rounded-full animate-bounce"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full animate-pulse"></div>
+            <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-3 bg-blue-600 rounded-full animate-bounce"></div>
           </div>
-
-          <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
+          <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
             {`Ready to start your next project? Drop us a message and we'll get back to you faster than you can say "innovation"!`}
-          </p>
-
+          </p>{" "}
           {/* Enhanced contact stats */}
           <div className="flex justify-center items-center gap-8 text-sm md:text-base mb-8 flex-wrap">
-            <div className="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 shadow-sm">
-              <Shield className="w-5 h-5" />
+            <div className="flex items-center gap-2 text-slate-700 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">
+              <Shield className="w-5 h-5 text-blue-600" />
               <span className="font-semibold">24/7 Support</span>
             </div>
-            <div className="w-1 h-1 bg-white/60 rounded-full hidden sm:block"></div>
-            <div className="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 shadow-sm">
-              <Star className="w-5 h-5" />
+            <div className="w-1 h-1 bg-slate-400 rounded-full hidden sm:block"></div>
+            <div className="flex items-center gap-2 text-slate-700 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">
+              <Star className="w-5 h-5 text-blue-600" />
               <span className="font-semibold">Quick Response</span>
             </div>
-            <div className="w-1 h-1 bg-white/60 rounded-full hidden sm:block"></div>
-            <div className="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm border border-white/20 shadow-sm">
-              <Zap className="w-5 h-5" />
+            <div className="w-1 h-1 bg-slate-400 rounded-full hidden sm:block"></div>
+            <div className="flex items-center gap-2 text-slate-700 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">
+              <Zap className="w-5 h-5 text-blue-600" />
               <span className="font-semibold">Expert Team</span>
             </div>
           </div>
-        </SlidingDiv>
-
+        </SlidingDiv>{" "}
         {/* Enhanced form section */}
         <SlidingDiv direction="bottom" px={50} className="relative z-10">
-          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Enhanced Name Input */}
                 <div className="relative group">
-                  <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                  <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                     <User className="w-4 h-4" />
                     Your Name
                   </label>
@@ -163,11 +158,11 @@ export const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className="w-full px-4 py-4 bg-gradient-to-br from-white/90 to-white/95 text-black border border-white/30 rounded-xl placeholder:text-black/50 hover:border-white/50 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg disabled:opacity-50"
+                      className="w-full px-4 py-4 bg-white text-black border border-slate-300 rounded-xl placeholder:text-slate-500 hover:border-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg disabled:opacity-50"
                       placeholder="Enter your full name"
                       required
                     />
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black/60 group-focus-within:text-blue-500 transition-colors">
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors">
                       <User className="w-5 h-5" />
                     </div>
                   </div>
@@ -175,7 +170,7 @@ export const Contact = () => {
 
                 {/* Enhanced Email Input */}
                 <div className="relative group">
-                  <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                  <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                     <Mail className="w-4 h-4" />
                     Email Address
                   </label>
@@ -186,11 +181,11 @@ export const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       disabled={isSubmitting}
-                      className="w-full px-4 py-4 bg-gradient-to-br from-white/90 to-white/95 text-black border border-white/30 rounded-xl placeholder:text-black/50 hover:border-white/50 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg disabled:opacity-50"
+                      className="w-full px-4 py-4 bg-white text-black border border-slate-300 rounded-xl placeholder:text-slate-500 hover:border-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg disabled:opacity-50"
                       placeholder="your.email@example.com"
                       required
                     />
-                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-black/60 group-focus-within:text-blue-500 transition-colors">
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors">
                       <Mail className="w-5 h-5" />
                     </div>
                   </div>
@@ -199,7 +194,7 @@ export const Contact = () => {
 
               {/* Enhanced Message Input */}
               <div className="relative group">
-                <label className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
                   Your Message
                 </label>
@@ -210,11 +205,11 @@ export const Contact = () => {
                     onChange={handleInputChange}
                     disabled={isSubmitting}
                     rows={6}
-                    className="w-full px-4 py-4 bg-gradient-to-br from-white/90 to-white/95 text-black border border-white/30 rounded-xl placeholder:text-black/50 hover:border-white/50 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg resize-none disabled:opacity-50"
+                    className="w-full px-4 py-4 bg-white text-black border border-slate-300 rounded-xl placeholder:text-slate-500 hover:border-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 shadow-lg resize-none disabled:opacity-50"
                     placeholder="Tell us about your project, questions, or how we can help you achieve your goals..."
                     required
                   />
-                  <div className="absolute right-3 top-4 text-black/60 group-focus-within:text-blue-500 transition-colors">
+                  <div className="absolute right-3 top-4 text-slate-400 group-focus-within:text-blue-500 transition-colors">
                     <MessageSquare className="w-5 h-5" />
                   </div>
                 </div>
@@ -299,64 +294,62 @@ export const Contact = () => {
               )}
             </form>
           </div>
-        </SlidingDiv>
-
+        </SlidingDiv>{" "}
         {/* Enhanced contact highlights */}
         <SlidingDiv direction="bottom" px={50} className="mt-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
+              <h3 className="text-xl font-bold mb-3 text-slate-800">
                 Quick Response
               </h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+              <p className="text-slate-600 text-center leading-relaxed font-medium">
                 We respond to all inquiries within 24 hours. Our dedicated team
                 ensures your questions get the attention they deserve.
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Phone className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
+              <h3 className="text-xl font-bold mb-3 text-slate-800">
                 Direct Support
               </h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+              <p className="text-slate-600 text-center leading-relaxed font-medium">
                 Personal consultation tailored to your specific needs. Get
                 expert advice from our experienced professionals.
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
+              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
+              <h3 className="text-xl font-bold mb-3 text-slate-800">
                 Global Reach
               </h3>
-              <p className="text-neutral-300 text-center leading-relaxed font-medium">
+              <p className="text-slate-600 text-center leading-relaxed font-medium">
                 {
                   "Serving clients worldwide with local expertise. No matter where you are, we're here to help you succeed."
                 }
               </p>
             </div>
           </div>
-        </SlidingDiv>
-
+        </SlidingDiv>{" "}
         {/* Additional call to action */}
         <SlidingDiv
           direction="top"
           px={50}
           className="text-center relative mt-16 z-10"
         >
-          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+          <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-xl">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 bg-gradient-to-r from-slate-800 to-blue-600 bg-clip-text text-transparent">
               Prefer Direct Contact?
             </h3>
-            <p className="text-neutral-300 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-slate-600 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
               {
                 "Sometimes a conversation is worth a thousand emails. Let's connect directly!"
               }

@@ -1,4 +1,5 @@
 import { Automations } from "./(landingPage)/Automations";
+import Calendly from "./(landingPage)/Calendly";
 import { Contact } from "./(landingPage)/Contact";
 import { Hero } from "./(landingPage)/Hero";
 import { Products } from "./(landingPage)/Products";
@@ -15,6 +16,7 @@ export default function Home() {
       <Products />
       <Suggestion />
       <Automations />
+      <Calendly />
       <Contact />
     </div>
   );
