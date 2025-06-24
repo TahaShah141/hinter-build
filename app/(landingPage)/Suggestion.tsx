@@ -131,7 +131,7 @@ Description: ${formData.description || "No additional description provided"}`,
             <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-3 bg-white rounded-full animate-bounce"></div>
           </div>
 
-          <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
+          <p className="text-neutral-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-8 font-medium mb-8">
             Have a brilliant automation idea? Share it with us and watch as we
             transform your vision into reality! Every great innovation starts
             with a single spark.
@@ -158,7 +158,7 @@ Description: ${formData.description || "No additional description provided"}`,
 
         {/* Enhanced form section */}
         <SlidingDiv direction="bottom" px={50} className="relative z-10">
-          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
+          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl w-full p-4 sm:p-6 md:p-12 shadow-2xl max-w-4xl mx-auto">
             <div className="space-y-8">
               {/* Category Selection */}
               <div className="relative group">
@@ -318,8 +318,8 @@ Description: ${formData.description || "No additional description provided"}`,
 
         {/* Enhanced feature highlights */}
         <SlidingDiv direction="bottom" px={50} className="mt-16 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="flex flex-col items-center gap-3 p-4 sm:p-6 md:p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
@@ -332,7 +332,7 @@ Description: ${formData.description || "No additional description provided"}`,
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col items-center gap-3 p-4 sm:p-6 md:p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <Rocket className="w-8 h-8 text-white" />
               </div>
@@ -345,7 +345,7 @@ Description: ${formData.description || "No additional description provided"}`,
               </p>
             </div>
 
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
+            <div className="flex flex-col items-center gap-3 p-4 sm:p-6 md:p-8 rounded-xl bg-gradient-to-br from-white/10 to-white/20 border border-white/20 backdrop-blur-md hover:from-white/20 hover:to-white/30 hover:shadow-xl transition-all duration-300 group">
               <div className="w-16 h-16 bg-gradient-to-r from-white/20 to-white/30 border border-white/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
@@ -366,7 +366,7 @@ Description: ${formData.description || "No additional description provided"}`,
           px={50}
           className="text-center relative mt-16 z-10"
         >
-          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl p-8 md:p-12 max-w-4xl mx-auto shadow-xl">
+          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl w-full p-4 sm:p-6 md:p-12 max-w-4xl mx-auto shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
               Need Inspiration?
             </h3>
@@ -374,7 +374,7 @@ Description: ${formData.description || "No additional description provided"}`,
               Here are some popular automation ideas to spark your creativity!
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               <div className="p-4 bg-white/5 rounded-lg border border-white/20">
                 <h4 className="font-semibold text-white mb-2">
                   📧 Email Automation

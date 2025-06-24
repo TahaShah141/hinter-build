@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRight, Package, Shield, Sparkles, Star, Zap } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { ProductCarousel } from "@/components/custom/ProductCarousel";
 import React from "react";
@@ -40,17 +41,17 @@ export const Products = () => {
           </p>
 
           {/* Enhanced product stats */}
-          <div className="flex justify-center items-center gap-8 text-sm md:text-base mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm md:text-base mb-8">
             <div className="flex items-center gap-2 text-blue-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Shield className="w-5 h-5" />
               <span className="font-semibold">Premium Quality</span>
             </div>
-            <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+            <div className="hidden min-[500px]:block w-1 h-1 bg-slate-400 rounded-full"></div>
             <div className="flex items-center gap-2 text-purple-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Star className="w-5 h-5" />
               <span className="font-semibold">Top Rated</span>
             </div>
-            <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+            <div className="hidden min-[500px]:block w-1 h-1 bg-slate-400 rounded-full"></div>
             <div className="flex items-center gap-2 text-orange-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Zap className="w-5 h-5" />
               <span className="font-semibold">Fast Delivery</span>

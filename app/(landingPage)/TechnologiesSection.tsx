@@ -15,9 +15,9 @@ const TechnologyCard = ({
 
   return (
     <div
-      className="group relative w-md text-white backdrop-blur-md bg-gradient-to-br from-white/5 to-white/10 border border-white/20 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+      className="group relative max-w-xs w-full mx-auto text-white backdrop-blur-md bg-gradient-to-br from-white/5 to-white/10 border border-white/20 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
     >
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* Logo section */}
         <div className="flex items-center justify-center h-20 mb-4">
           <img
@@ -81,7 +81,7 @@ export const TechnologiesSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full animate-pulse"></div>
         </div>
 
-        <p className="text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium">
+        <p className="text-neutral-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-8 font-medium">
           Cutting-edge technologies and frameworks we leverage to build
           innovative, scalable solutions for your business needs.
         </p>

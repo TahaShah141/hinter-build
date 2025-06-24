@@ -40,17 +40,17 @@ export const Automations = () => {
           </p>
 
           {/* Enhanced automation stats */}
-          <div className="flex justify-center items-center gap-8 text-sm md:text-base mb-8">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-sm md:text-base mb-8">
             <div className="flex items-center gap-2 text-cyan-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Cpu className="w-5 h-5" />
               <span className="font-semibold">AI-Powered</span>
             </div>
-            <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+            <div className="hidden min-[500px]:block w-1 h-1 bg-slate-400 rounded-full"></div>
             <div className="flex items-center gap-2 text-indigo-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Zap className="w-5 h-5" />
               <span className="font-semibold">Lightning Fast</span>
             </div>
-            <div className="w-1 h-1 bg-slate-400 rounded-full"></div>
+            <div className="hidden min-[500px]:block w-1 h-1 bg-slate-400 rounded-full"></div>
             <div className="flex items-center gap-2 text-blue-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Settings className="w-5 h-5" />
               <span className="font-semibold">Fully Customizable</span>

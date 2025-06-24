@@ -28,7 +28,7 @@ const ServiceCard = ({
     <SlidingDiv repeat direction="bottom" delay={0.1 * index}>
       <div
         ref={cardRef}
-        className="group relative h-full bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-6 text-center cursor-pointer transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20"
+        className="group relative h-full bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-sm rounded-2xl p-6 text-center md:text-left max-w-sm mx-auto cursor-pointer transition-all duration-500 ease-out hover:-translate-y-3 hover:scale-105 shadow-lg hover:shadow-2xl border border-white/20"
         style={{
           animationDelay: `${index * 0.1}s`,
           animation: "fadeInUp 0.6s ease-out backwards",
@@ -76,7 +76,7 @@ const ServiceCard = ({
             </div>
 
             {/* Image container with enhanced effects */}
-            <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100 group-hover:border-blue-200 transition-all duration-300 overflow-hidden h-48">
+            <div className="relative bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl border border-blue-100 group-hover:border-blue-200 transition-all duration-300 overflow-hidden h-40 md:h-48">
               {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-xl blur-md opacity-0 group-hover:opacity-30 transition-all duration-500 scale-110"></div>
               
@@ -127,12 +127,12 @@ const ServiceCard = ({
           </div>
 
           {/* Service name with gradient text */}
-          <h3 className="font-bold text-lg md:text-xl bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4 transition-all duration-300 group-hover:from-blue-600 group-hover:to-purple-600">
+          <h3 className="font-bold text-base sm:text-lg md:text-xl bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-4 transition-all duration-300 group-hover:from-blue-600 group-hover:to-purple-600">
             {name}
           </h3>
 
           {/* Enhanced description */}
-          <p className="text-slate-600 text-sm scale-90 group-hover:scale-100 transition-all duration-300 leading-relaxed mb-4">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base scale-90 group-hover:scale-100 transition-all duration-300 leading-relaxed mb-4">
             Professional {name.toLowerCase()} solutions tailored to your needs
           </p>
 
@@ -146,7 +146,7 @@ const ServiceCard = ({
 
 export const ServicesSection = () => {
   return (
-    <section id="services" className="bg-white text-slate-800 py-16 md:py-24 px-4 md:px-8 relative overflow-hidden">
+    <section id="services" className="bg-white text-slate-800 py-16 md:py-24 px-4 sm:px-6 md:px-8 relative overflow-hidden">
       {/* Enhanced background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient orbs */}
@@ -170,7 +170,7 @@ export const ServicesSection = () => {
         ></div>
       </div>
 
-      <div className="max-w-8xl mx-auto animate-fadeInUp px-4 relative z-10">
+      <div className="max-w-screen-2xl mx-auto animate-fadeInUp px-4 sm:px-6 md:px-8 relative z-10">
         {/* Enhanced header section */}
         <header className="text-center mb-16 md:mb-24 relative">
           <div className="flex items-center justify-center gap-4 mb-6">
@@ -211,7 +211,7 @@ export const ServicesSection = () => {
         </header>
 
         {/* Enhanced technologies grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 p-4 md:p-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 p-4 md:p-8">
           {services.map((service, i) => (
             <ServiceCard key={i} {...service} index={i} />
           ))}
