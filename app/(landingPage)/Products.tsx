@@ -9,7 +9,10 @@ import { products } from "@/lib/constants/products";
 
 export const Products = () => {
   return (
-    <section className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden">
+    <section
+      id="products"
+      className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4">
         {/* Enhanced header section */}
         <SlidingDiv direction="top" px={50} className="text-center relative">

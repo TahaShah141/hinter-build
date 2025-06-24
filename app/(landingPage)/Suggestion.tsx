@@ -162,7 +162,7 @@ Description: ${formData.description || "No additional description provided"}`,
             <div className="space-y-8">
               {/* Category Selection */}
               <div className="relative group">
-                <label className="block text-sm font-semibold text-white mb-4 flex items-center gap-2">
+                <label className=" text-sm font-semibold text-white mb-4 flex items-center gap-2">
                   <Target className="w-4 h-4" />
                   Automation Category
                 </label>
@@ -200,7 +200,7 @@ Description: ${formData.description || "No additional description provided"}`,
 
               {/* Enhanced Idea Input */}
               <div className="relative group">
-                <label className="block text-sm font-semibold text-white mb-2 flex items-center gap-2">
+                <label className=" text-sm font-semibold text-white mb-2 flex items-center gap-2">
                   <Lightbulb className="w-4 h-4" />
                   Your Automation Idea
                 </label>

@@ -9,7 +9,10 @@ import { automations } from "@/lib/constants/automations";
 
 export const Automations = () => {
   return (
-    <section className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden">
+    <section
+      id="automations"
+      className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden"
+    >
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Enhanced header section */}
         <SlidingDiv direction="top" px={50} className="text-center relative">
