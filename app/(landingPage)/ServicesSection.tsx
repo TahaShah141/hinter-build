@@ -146,7 +146,7 @@ const ServiceCard = ({
 
 export const ServicesSection = () => {
   return (
-    <section className="bg-white text-slate-800 py-16 md:py-24 px-4 md:px-8 relative overflow-hidden">
+    <section id="services" className="bg-white text-slate-800 py-16 md:py-24 px-4 md:px-8 relative overflow-hidden">
       {/* Enhanced background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Gradient orbs */}
