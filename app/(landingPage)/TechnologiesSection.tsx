@@ -1,11 +1,10 @@
 "use client";
 
-import { ArrowRight, Code2, Settings, Sparkles } from "lucide-react";
+import { ArrowRight, Code2, Sparkles } from "lucide-react";
 import { TechnologyType, technologies } from "@/lib/constants/technologies";
 
 import Marquee from "react-fast-marquee";
 import { SlidingDiv } from "@/components/custom/SlidingDiv";
-import { useState } from "react";
 
 const TechnologyCard = ({
   name,
@@ -13,13 +12,10 @@ const TechnologyCard = ({
   src,
   index,
 }: TechnologyType & { index: number }) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
       className="group relative w-md text-white backdrop-blur-md bg-gradient-to-br from-white/5 to-white/10 border border-white/20 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="p-6">
         {/* Logo section */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Code2, Play, Settings, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, Play, Settings, Sparkles, Zap } from "lucide-react";
 import { ServiceType, services } from "@/lib/constants/services";
 import { useRef, useState } from "react";
 
