@@ -3,16 +3,16 @@ import Calendly from "./(landingPage)/Calendly";
 import { Contact } from "./(landingPage)/Contact";
 import { Hero } from "./(landingPage)/Hero";
 import { Products } from "./(landingPage)/Products";
-import { Services } from "./(landingPage)/Services";
+import { ServicesSection } from "./(landingPage)/ServicesSection";
 import { Suggestion } from "./(landingPage)/Suggestion";
-import { Technologies } from "./(landingPage)/Technologies";
+import { TechnologiesSection } from "./(landingPage)/TechnologiesSection";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <Technologies />
-      <Services />
+      <ServicesSection />
+      <TechnologiesSection />
       <Products />
       <Suggestion />
       <Automations />
