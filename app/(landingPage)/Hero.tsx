@@ -197,11 +197,11 @@ export const Hero = () => {
               </div>
             </SlidingDiv>
 
-            <div className="hidden lg:flex flex-col flex-1 gap-4 justify-center">
+            <div className="flex flex-col flex-1 gap-4 justify-center">
               <SlidingDiv direction="right" px={70} className="relative">
                 <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/5 to-white/20 border border-white/10 backdrop-blur-md shadow-2xl p-2">
                   <video
-                    className="w-full h-[500px] object-cover rounded-2xl"
+                    className="w-full h-[300px] lg:h-[500px] object-cover rounded-2xl"
                     autoPlay
                     muted
                     loop
