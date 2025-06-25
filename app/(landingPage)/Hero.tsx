@@ -34,7 +34,7 @@ const Navbar = () => {
         <h1 className="font-bold text-white text-xl md:text-3xl">
           Hinter
           <span className="text-primary">
-            B<span className="font-medium">uilder</span>
+            B<span className="font-medium">uild</span>
           </span>
         </h1>
       </div>
@@ -151,7 +151,7 @@ export const Hero = () => {
   return (
     <section
       id="hero"
-      className="py-8 md:py-8 min-h-screen flex flex-col items-center gap-8 md:gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden"
+      className="py-8 lg:pb-10 md:py-8 min-h-screen flex flex-col items-center gap-8 md:gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
