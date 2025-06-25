@@ -49,8 +49,8 @@ export const ContactForm = () => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button
-          size="lg"
-          className=" bg-gradient-to-r from-[#0A5EB0] to-[#2A3335]  hover:from-primary/90 hover:to-primary/70 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 w-56 h-12 text-lg"
+          // size="lg"
+          className=" bg-gradient-to-r sm:w-56 from-[#0A5EB0] to-[#2A3335]  hover:from-primary/90 hover:to-primary/70 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 md:w-56 h-12 text-lg"
         >
           <Mail className="w-5 h-5" />
           Get In Touch

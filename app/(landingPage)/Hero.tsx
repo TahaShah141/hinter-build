@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/custom/ContactForm";
 import { Input } from "@/components/ui/input";
 import { SlidingDiv } from "@/components/custom/SlidingDiv";
+import { Menu, X, Search } from "lucide-react";
+import { useState } from "react";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -16,116 +18,177 @@ const scrollToSection = (sectionId: string) => {
 };
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <SlidingDiv
       direction="top"
       px={50}
-      className="flex gap-6 justify-between items-center"
+      className="flex gap-4 md:gap-6 justify-between items-center relative z-50"
     >
       <div
-        className="flex gap-6 items-center backdrop-blur-md cursor-pointer"
+        className="flex gap-3 md:gap-6 items-center backdrop-blur-md cursor-pointer"
         onClick={() => scrollToSection("hero")}
       >
-        <img src={"/logo.png"} className="h-8" />
-        <h1 className="font-bold text-white text-3xl">
+        <img src={"/logo.png"} className="h-6 md:h-8" />
+        <h1 className="font-bold text-white text-xl md:text-3xl">
           Hinter
           <span className="text-primary">
             B<span className="font-medium">uilder</span>
           </span>
         </h1>
       </div>
-      <div className="bg-gradient-to-br from-white/5 to-white/20 flex gap-12 px-6 rounded-full text-sm font-semibold p-1 border border-white/20 backdrop-blur-md">
+
+      <div className="hidden lg:flex bg-gradient-to-br from-white/5 to-white/20 gap-8 xl:gap-12 px-6 rounded-full text-sm font-semibold py-1.5 border border-white/20 backdrop-blur-md">
         <p
-          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          className="cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
           onClick={() => scrollToSection("services")}
         >
           Services
         </p>
         <p
-          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          className="cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
           onClick={() => scrollToSection("products")}
         >
           Products
         </p>
         <p
-          className="flex-1 cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
+          className="cursor-pointer hover:text-blue-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10"
           onClick={() => scrollToSection("automations")}
         >
           Automations
         </p>
       </div>
-      <div className="flex gap-4 items-center backdrop-blur-md">
-        <div className="relative">
+
+      <div className="hidden md:flex gap-4 items-center backdrop-blur-md">
+        <div className="relative hidden lg:block">
           <Input
             placeholder="Search"
-            className="bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md placeholder:text-white/25"
+            className="bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md placeholder:text-white/25 text-white w-32 xl:w-auto"
           />
-          <svg
-            className="h-full absolute right-0 top-0 p-2 text-white/25"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-            >
-              <path d="m21 21l-4.34-4.34" />
-              <circle cx="11" cy="11" r="8" />
-            </g>
-          </svg>
+          <Search className="h-4 w-4 absolute right-3 top-1/2 transform -translate-y-1/2 text-white/25" />
         </div>
         <Button
           size={"sm"}
-          className="inline-flex items-center justify-center gap-3 w-fit px-5 py-5 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer "
+          className="inline-flex items-center justify-center gap-2 px-4 py-2 md:px-5 md:py-3 bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-sm"
           onClick={() => scrollToSection("contact")}
         >
           {"Let's Chat"}
         </Button>
       </div>
+
+      <Button
+        size="sm"
+        variant="ghost"
+        className="md:hidden text-white hover:bg-white/10 p-2"
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? (
+          <X className="w-5 h-5" />
+        ) : (
+          <Menu className="w-5 h-5" />
+        )}
+      </Button>
+
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 mx-4 mt-4 bg-gradient-to-br from-white/10 to-white/25 backdrop-blur-md border border-white/30 rounded-2xl p-6 shadow-2xl md:hidden z-50">
+          <div className="flex flex-col gap-4">
+            <div className="relative mb-4">
+              <Input
+                placeholder="Search"
+                className="bg-gradient-to-br from-white/10 to-white/25 border border-white/30 backdrop-blur-md placeholder:text-white/50 text-white pr-10"
+              />
+              <Search className="h-4 w-4 absolute right-3 top-1/2 transform -translate-y-1/2 text-white/50" />
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <p
+                className="text-white font-semibold py-3 px-4 hover:bg-white/10 rounded-lg transition-colors text-center"
+                onClick={() => {
+                  scrollToSection("services");
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Services
+              </p>
+              <p
+                className="text-white font-semibold py-3 px-4 hover:bg-white/10 rounded-lg transition-colors text-center"
+                onClick={() => {
+                  scrollToSection("products");
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Products
+              </p>
+              <p
+                className="text-white font-semibold py-3 px-4 hover:bg-white/10 rounded-lg transition-colors text-center"
+                onClick={() => {
+                  scrollToSection("automations");
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                Automations
+              </p>
+            </div>
+
+            <Button
+              className="w-full bg-gradient-to-r from-[#0A5EB0] to-[#2A3335] hover:from-blue-600 hover:to-slate-700 transition-all duration-300 rounded-full py-3"
+              onClick={() => {
+                scrollToSection("contact");
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              {"Let's Chat"}
+            </Button>
+          </div>
+        </div>
+      )}
     </SlidingDiv>
   );
 };
 
 export const Hero = () => {
   return (
-    // <div className="min-h-screen relative flex flex-col text-white bg-gradient-to-r from-dark to-primary/70">
     <section
       id="hero"
-      className="py-16 min-h-screen flex flex-col items-center gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative"
+      className="py-8 md:py-8 min-h-screen flex flex-col items-center gap-8 md:gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden"
     >
-      {/* Enhanced background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2" />
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/15 rounded-full blur-2xl -translate-x-1/2" />
+      <div className="absolute top-0 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute bottom-0 right-1/4 w-72 md:w-96 h-72 md:h-96 bg-white/5 rounded-full blur-3xl translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-48 md:w-64 h-48 md:h-64 bg-purple-500/15 rounded-full blur-2xl -translate-x-1/2" />
 
-      <div className="absolute inset-0 bg-grid">
-        <div className="absolute inset-12 flex flex-col gap-32">
+      <div className="absolute inset-0 bg-grid opacity-30" />
+
+      <div className="w-full h-full relative z-10">
+        <div className="w-full h-full flex flex-col gap-16 md:gap-32 px-4 md:px-8 lg:px-12 pt-4 ">
           <Navbar />
-          <div className="flex justify-between gap-4 drop-shadow-md">
+
+          <div className="w-full flex flex-col lg:flex-row justify-between gap-8 lg:gap-4 drop-shadow-md">
             <SlidingDiv
               direction="left"
               px={70}
-              className="flex flex-1 flex-col gap-12"
+              className="flex flex-1 flex-col gap-8 md:gap-12 text-center lg:text-left"
             >
-              <div className="flex flex-col font-bold text-7xl min-[1600px]:text-8xl">
+              <div className="flex flex-col font-bold text-4xl md:text-6xl lg:text-7xl min-[1600px]:text-8xl leading-tight">
                 <h2>In World of</h2>
                 <h2 className="text-primary">AI Development</h2>
               </div>
-              <p className="text-4xl">{"We've got you covered"}</p>
-              <p className="font-light text-2xl max-w-xl">
+
+              <p className="text-2xl md:text-3xl lg:text-4xl font-semibold">
+                {"We've got you covered"}
+              </p>
+
+              <p className="font-light text-lg md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 {
                   "HinterBuild has the team to create and manage your GenAI Applications"
                 }
               </p>
-              <div className="flex mt-4 gap-8 items-center">
-                {/* <Button className="font-bold w-56 h-12 text-lg ">Contact Now</Button> */}
+
+              <div className="flex sm:flex-row gap-4 md:gap-8 items-center justify-center lg:justify-start mt-4">
                 <ContactForm />
                 <Button
-                  className="font-bold w-56 h-12 text-lg"
+                  className="font-bold px-8 py-3 sm:w-56 md:w-56 h-12 text-lg"
                   variant={"secondary"}
                   onClick={() => scrollToSection("services")}
                 >
@@ -133,141 +196,24 @@ export const Hero = () => {
                 </Button>
               </div>
             </SlidingDiv>
-            <div className="flex flex-col flex-1 gap-4">
-              <SlidingDiv direction="right" px={70} className="h-52 flex gap-4">
-                <div className="flex-[3_0_0] flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+
+            <div className="hidden lg:flex flex-col flex-1 gap-4 justify-center">
+              <SlidingDiv direction="right" px={70} className="relative">
+                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/5 to-white/20 border border-white/10 backdrop-blur-md shadow-2xl p-2">
+                  <video
+                    className="w-full h-[500px] object-cover rounded-2xl"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
                   >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 5a3 3 0 1 0-5.997.125a4 4 0 0 0-2.526 5.77a4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-                      <path d="M9 13a4.5 4.5 0 0 0 3-4M6.003 5.125A3 3 0 0 0 6.401 6.5m-2.924 4.396a4 4 0 0 1 .585-.396M6 18a4 4 0 0 1-1.967-.516M12 13h4m-4 5h6a2 2 0 0 1 2 2v1M12 8h8m-4 0V5a2 2 0 0 1 2-2" />
-                      <circle cx="16" cy="13" r=".5" />
-                      <circle cx="18" cy="3" r=".5" />
-                      <circle cx="20" cy="21" r=".5" />
-                      <circle cx="20" cy="8" r=".5" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">AI Automation</p>
-                </div>
-                <div className="flex-[2_0_0] flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.4 22.4 0 0 1-4 2" />
-                      <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0m1 7v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">Fast Deployment</p>
-                </div>
-              </SlidingDiv>
-              <SlidingDiv
-                direction="right"
-                px={70}
-                delay={0.1}
-                className="h-52 flex gap-4"
-              >
-                <div className="flex-1 flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="16" r="1" />
-                      <rect width="18" height="12" x="3" y="10" rx="2" />
-                      <path d="M7 10V7a5 5 0 0 1 10 0v3" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">Secure Systems</p>
-                </div>
-              </SlidingDiv>
-              <SlidingDiv
-                direction="right"
-                px={70}
-                delay={0.2}
-                className="h-52 flex gap-4"
-              >
-                <div className="flex-[3_0_0] flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <path d="M12 2a14.5 14.5 0 0 0 0 20a14.5 14.5 0 0 0 0-20M2 12h20" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">Global Reach</p>
-                </div>
-                <div className="flex-[2_0_0] flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <path d="M12 5a3 3 0 1 0-5.997.125a4 4 0 0 0-2.526 5.77a4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-                      <path d="M12 5a3 3 0 1 1 5.997.125a4 4 0 0 1 2.526 5.77a4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
-                      <path d="M15 13a4.5 4.5 0 0 1-3-4a4.5 4.5 0 0 1-3 4m8.599-6.5a3 3 0 0 0 .399-1.375m-11.995 0A3 3 0 0 0 6.401 6.5m-2.924 4.396a4 4 0 0 1 .585-.396m15.876 0a4 4 0 0 1 .585.396M6 18a4 4 0 0 1-1.967-.516m15.934 0A4 4 0 0 1 18 18" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">Smart Solutions</p>
-                </div>
-                <div className="flex-[2_0_0] flex flex-col gap-2 justify-center items-center rounded-2xl bg-gradient-to-br from-white/5 to-white/20 border border-white/20 backdrop-blur-md">
-                  <svg
-                    className="size-16"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                    >
-                      <path d="M16 7h6v6" />
-                      <path d="m22 7l-8.5 8.5l-5-5L2 17" />
-                    </g>
-                  </svg>
-                  <p className="font-bold">Scalable Growth</p>
+                    <source src="/hero-video.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+
+                  <div className="absolute inset-2 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-2xl" />
+
+                  <div className="absolute inset-2 bg-gradient-to-br from-blue-500/10 via-transparent to-purple-500/10 pointer-events-none rounded-2xl" />
                 </div>
               </SlidingDiv>
             </div>
@@ -275,6 +221,5 @@ export const Hero = () => {
         </div>
       </div>
     </section>
-    // </div>
   );
 };
