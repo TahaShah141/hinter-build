@@ -359,61 +359,6 @@ Description: ${formData.description || "No additional description provided"}`,
             </div>
           </div>
         </SlidingDiv>
-
-        {/* Additional inspiration section */}
-        <SlidingDiv
-          direction="top"
-          px={50}
-          className="text-center relative mt-16 z-10"
-        >
-          <div className="bg-gradient-to-br from-white/10 to-white/20 border border-white/30 backdrop-blur-md rounded-3xl w-full p-4 sm:p-6 md:p-12 max-w-4xl mx-auto shadow-xl">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-              Need Inspiration?
-            </h3>
-            <p className="text-neutral-300 text-lg md:text-xl font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-              Here are some popular automation ideas to spark your creativity!
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-              <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">
-                  📧 Email Automation
-                </h4>
-                <p className="text-neutral-300 text-sm">
-                  Automated email responses, follow-ups, and customer onboarding
-                  sequences.
-                </p>
-              </div>
-              <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">
-                  📊 Data Processing
-                </h4>
-                <p className="text-neutral-300 text-sm">
-                  Automated report generation, data synchronization, and
-                  analytics dashboards.
-                </p>
-              </div>
-              <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">
-                  🤖 AI Integration
-                </h4>
-                <p className="text-neutral-300 text-sm">
-                  Chatbots, content generation, image processing, and
-                  intelligent decision making.
-                </p>
-              </div>
-              <div className="p-4 bg-white/5 rounded-lg border border-white/20">
-                <h4 className="font-semibold text-white mb-2">
-                  ⚡ Workflow Optimization
-                </h4>
-                <p className="text-neutral-300 text-sm">
-                  Task scheduling, approval processes, and cross-platform
-                  integrations.
-                </p>
-              </div>
-            </div>
-          </div>
-        </SlidingDiv>
       </div>
 
       <style jsx>{`

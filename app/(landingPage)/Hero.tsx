@@ -181,7 +181,7 @@ export const Hero = () => {
 
               <p className="font-light text-lg md:text-xl lg:text-2xl max-w-xl mx-auto lg:mx-0 leading-relaxed">
                 {
-                  "HinterBuild has the team to create and manage your GenAI Applications"
+                  "HinterBuild has the team to develop and deploy your GenAI Applications"
                 }
               </p>
 
@@ -199,9 +199,9 @@ export const Hero = () => {
 
             <div className="flex flex-col flex-1 gap-4 justify-center">
               <SlidingDiv direction="right" px={70} className="relative">
-                <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-white/5 to-white/20 border border-white/10 backdrop-blur-md shadow-2xl p-2">
+                <div className="relative  overflow-hidden backdrop-blur-md ">
                   <video
-                    className="w-full h-[300px] lg:h-[500px] object-cover rounded-2xl"
+                    className="w-full h-[300px] lg:h-[500px] object-cover "
                     autoPlay
                     muted
                     loop

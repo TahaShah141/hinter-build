@@ -11,8 +11,9 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full">
       <Hero />
-      <ServicesSection />
       <TechnologiesSection />
+      <ServicesSection />
+
       <Products />
       <Suggestion />
       <Automations />

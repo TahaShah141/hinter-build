@@ -56,55 +56,11 @@ export const Automations = () => {
               <span className="font-semibold">Fully Customizable</span>
             </div>
           </div>
-
-          {/* Key benefits grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200 hover:border-cyan-400 hover:shadow-lg transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-cyan-500 to-indigo-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">
-                Instant Deployment
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Ready-to-use automation templates that can be deployed in
-                minutes, not weeks.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200 hover:border-indigo-400 hover:shadow-lg transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Bot className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">
-                Smart Learning
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                AI-driven automations that learn from your patterns and optimize
-                over time.
-              </p>
-            </div>
-
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl p-6 border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all duration-300 group">
-              <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Settings className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2 text-slate-800">
-                Seamless Integration
-              </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Connect with your existing tools and workflows without
-                disruption.
-              </p>
-            </div>
-          </div>
         </SlidingDiv>
 
         {/* Enhanced carousel section */}
         <SlidingDiv direction="bottom" px={50}>
-          <AutomationCarousel
-            automations={Array.from({ length: 8 }, () => automations[0])}
-          />
+          <AutomationCarousel automations={automations} />
         </SlidingDiv>
 
         {/* Enhanced call to action */}

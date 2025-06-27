@@ -299,49 +299,6 @@ export const Contact = () => {
           </div>
         </SlidingDiv>{" "}
         {/* Enhanced contact highlights */}
-        <SlidingDiv direction="bottom" px={50} className="mt-16 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Mail className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-800">
-                Quick Response
-              </h3>
-              <p className="text-slate-600 text-center leading-relaxed font-medium">
-                We respond to all inquiries within 24 hours. Our dedicated team
-                ensures your questions get the attention they deserve.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-800">
-                Direct Support
-              </h3>
-              <p className="text-slate-600 text-center leading-relaxed font-medium">
-                Personal consultation tailored to your specific needs. Get
-                expert advice from our experienced professionals.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center gap-3 p-8 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:from-slate-100 hover:to-slate-200 hover:shadow-xl transition-all duration-300 group">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <MapPin className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-800">
-                Global Reach
-              </h3>
-              <p className="text-slate-600 text-center leading-relaxed font-medium">
-                {
-                  "Serving clients worldwide with local expertise. No matter where you are, we're here to help you succeed."
-                }
-              </p>
-            </div>
-          </div>
-        </SlidingDiv>{" "}
         {/* Additional call to action */}
         <SlidingDiv
           direction="top"
