@@ -1,8 +1,6 @@
 "use client";
 
 import {
-  ArrowRight,
-  Play,
   Settings,
   Sparkles,
   Zap,
@@ -10,14 +8,12 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { ServiceType, services } from "@/lib/constants/services";
-import { useRef, useState, useEffect } from "react";
-
-import { SlidingDiv } from "@/components/custom/SlidingDiv";
+import { useState, useEffect } from "react";
 
 const ServiceCard = ({
   name,
   src,
-  index,
+
   isActive = false,
 }: ServiceType & { index: number; isActive?: boolean }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -120,7 +116,6 @@ const ServiceCard = ({
 export const ServicesSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Limit to 5 services for better display
   const displayServices = services.slice(0, 5);

@@ -6,7 +6,6 @@ import {
   CheckCircle,
   Loader2,
   Mail,
-  MapPin,
   MessageSquare,
   Phone,
   Send,

@@ -1,8 +1,6 @@
 "use client";
 
-import { ArrowRight, Package, Shield, Sparkles, Star, Zap } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { Package, Shield, Star, Zap } from "lucide-react";
 import { ProductCarousel } from "@/components/custom/ProductCarousel";
 import React from "react";
 import { SlidingDiv } from "@/components/custom/SlidingDiv";

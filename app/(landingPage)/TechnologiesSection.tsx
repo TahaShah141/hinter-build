@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Code2, Sparkles } from "lucide-react";
+import { Code2, Sparkles } from "lucide-react";
 import { TechnologyType, technologies } from "@/lib/constants/technologies";
 
 import Marquee from "react-fast-marquee";
@@ -21,14 +21,12 @@ const TechnologyCard = ({ src }: TechnologyType & { index: number }) => {
 
 export const TechnologiesSection = () => {
   return (
-    <section className="py-24 flex flex-col items-center gap-12 text-gray-800 bg-white relative">
-      {/* Enhanced background decorations */}
+    <section className="py-32 md:py-40 flex flex-col items-center gap-16 md:gap-20 text-gray-800 bg-white relative">
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100/50 to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100/30 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gray-100/40 rounded-full blur-3xl translate-y-1/2" />
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-100/20 rounded-full blur-2xl -translate-x-1/2" />
 
-      {/* Enhanced header */}
       <SlidingDiv direction="top" px={50} className="text-center relative z-10">
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="relative">
@@ -40,13 +38,12 @@ export const TechnologiesSection = () => {
           </h2>
         </div>
 
-        {/* Enhanced underline */}
-        <div className="relative mx-auto w-20 md:w-32 h-1 mb-8">
+        <div className="relative mx-auto w-20 md:w-32 h-1 mb-12">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
         </div>
 
-        <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-8 font-medium">
+        <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed px-4 sm:px-6 md:px-8 font-medium mb-12">
           Cutting-edge technologies and frameworks we leverage to build
           innovative, scalable solutions for your business needs.
         </p>
