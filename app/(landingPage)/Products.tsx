@@ -13,7 +13,6 @@ export const Products = () => {
       className="bg-white text-slate-800 py-12 md:py-24 px-4 md:px-8 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4">
-        {/* Enhanced header section */}
         <SlidingDiv direction="top" px={50} className="text-center relative">
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="relative">
@@ -26,7 +25,6 @@ export const Products = () => {
             </h2>
           </div>
 
-          {/* Enhanced underline with multiple layers */}
           <div className="relative mx-auto w-24 md:w-36 h-1 mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-orange-500 rounded-full animate-pulse"></div>
@@ -38,7 +36,6 @@ export const Products = () => {
             elevate your experience and exceed your expectations.
           </p>
 
-          {/* Enhanced product stats */}
           <div className="flex flex-wrap justify-center items-center gap-8 text-sm md:text-base mb-8">
             <div className="flex items-center gap-2 text-blue-600 bg-slate-50 px-4 py-2 rounded-full backdrop-blur-sm border border-slate-200">
               <Shield className="w-5 h-5" />
@@ -57,7 +54,6 @@ export const Products = () => {
           </div>
         </SlidingDiv>
 
-        {/* Original carousel - untouched */}
         <SlidingDiv direction="bottom" px={50}>
           <ProductCarousel
             products={Array.from({ length: 8 }, () => products[0])}

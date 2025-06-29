@@ -28,7 +28,6 @@ const ServiceCard = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Animated gradient border */}
       <div
         className={`absolute inset-0 rounded-3xl p-[2px] bg-gradient-to-br from-blue-400 via-purple-400 to-blue-500 transition-all duration-700 -z-10 ${
           isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -37,7 +36,6 @@ const ServiceCard = ({
         <div className="w-full h-full bg-gradient-to-br from-slate-900/95 to-blue-900/95 backdrop-blur-xl rounded-3xl"></div>
       </div>
 
-      {/* Glow effect */}
       <div
         className={`absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 transition-all duration-700 blur-xl ${
           isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -45,7 +43,6 @@ const ServiceCard = ({
       ></div>
 
       <div className="relative z-10 h-full flex flex-col">
-        {/* Enhanced Image container */}
         <div className="mb-6 flex-1 relative overflow-hidden rounded-2xl">
           <img
             src={src}
@@ -55,14 +52,12 @@ const ServiceCard = ({
             alt={name}
           />
 
-          {/* Gradient overlay */}
           <div
             className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500 ${
               isActive ? "opacity-80" : "opacity-60 group-hover:opacity-80"
             }`}
           ></div>
 
-          {/* Floating particles on hover or active */}
           {(isHovered || isActive) && (
             <div className="absolute inset-0 pointer-events-none">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -81,7 +76,6 @@ const ServiceCard = ({
           )}
         </div>
 
-        {/* Service name with gradient text */}
         <h3
           className={`font-bold text-xl md:text-2xl bg-gradient-to-r bg-clip-text text-transparent mb-4 transition-all duration-300 text-center ${
             isActive
@@ -92,7 +86,6 @@ const ServiceCard = ({
           {name}
         </h3>
 
-        {/* Enhanced description */}
         <p
           className={`text-sm md:text-base transition-all duration-300 leading-relaxed text-center ${
             isActive ? "text-white" : "text-neutral-300 group-hover:text-white"
@@ -102,7 +95,6 @@ const ServiceCard = ({
           needs
         </p>
 
-        {/* Subtle accent line */}
         <div
           className={`mx-auto w-16 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-500 mt-4 ${
             isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
@@ -120,7 +112,6 @@ export const ServicesSection = () => {
   // Limit to 5 services for better display
   const displayServices = services.slice(0, 5);
 
-  // Auto-play functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
 
@@ -150,9 +141,7 @@ export const ServicesSection = () => {
       id="services"
       className="bg-gradient-to-r from-slate-900 to-blue-900 text-white py-16 md:py-24 px-4 sm:px-6 md:px-8 relative overflow-hidden"
     >
-      {/* Enhanced background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gradient orbs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div
           className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-r from-purple-500/15 to-blue-500/15 rounded-full blur-3xl animate-pulse"
@@ -162,7 +151,6 @@ export const ServicesSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section header with enhanced animations */}
         <header className="text-center mb-16 md:mb-20">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fadeInUp">
             <span className="bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
@@ -194,9 +182,7 @@ export const ServicesSection = () => {
           </div>
         </header>
 
-        {/* Innovative 3D Carousel */}
         <div className="relative mb-12">
-          {/* Navigation buttons */}
           <button
             onClick={handlePrev}
             className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300 group"
@@ -215,7 +201,6 @@ export const ServicesSection = () => {
             <ChevronRight className="w-6 h-6 group-hover:scale-110 transition-transform" />
           </button>
 
-          {/* 3D Carousel Container */}
           <div
             className="relative h-[500px] flex items-center justify-center perspective-1000"
             onMouseEnter={() => setIsAutoPlaying(false)}
@@ -250,7 +235,6 @@ export const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Enhanced Progress Indicators */}
         <div className="flex justify-center items-center gap-3 mb-12">
           {displayServices.map((_, index) => (
             <button
@@ -269,7 +253,6 @@ export const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Infinite Marquee for Service Names */}
         <div className="relative overflow-hidden py-8 mb-12">
           <div className="marquee-wrapper">
             <div className="marquee-content">
@@ -287,7 +270,6 @@ export const ServicesSection = () => {
           </div>
         </div>
 
-        {/* Call to action section */}
         <div className="text-center mt-16 md:mt-24">
           <p className="text-neutral-300 text-lg md:text-xl font-medium mb-6">
             Ready to transform your ideas into reality?

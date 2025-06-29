@@ -21,7 +21,7 @@ export const Hero = () => {
       <Navbar />
       <section
         id="hero"
-        className="pt-32 pb-8 lg:pb-10 md:pb-8 min-h-screen flex flex-col items-center gap-8 md:gap-12 text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden"
+        className="pt-20 pb-8 lg:pb-10 md:pb-8 min-h-screen flex flex-col justify-center text-white bg-gradient-to-r from-slate-900 to-blue-900 relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
         <div className="absolute top-0 left-1/4 w-72 md:w-96 h-72 md:h-96 bg-blue-500/10 rounded-full blur-3xl -translate-y-1/2" />
@@ -30,8 +30,8 @@ export const Hero = () => {
 
         <div className="absolute inset-0 bg-grid opacity-30" />
 
-        <div className="w-full h-full relative z-10 ">
-          <div className="w-full h-full flex flex-col justify-center  px-4 md:px-8 lg:px-12">
+        <div className="w-full h-full relative z-10 flex items-center">
+          <div className="w-full px-4 md:px-8 lg:px-12">
             <div className="w-full flex flex-col lg:flex-row justify-between gap-8 lg:gap-2 drop-shadow-md">
               <SlidingDiv
                 direction="left"
