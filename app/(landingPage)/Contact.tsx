@@ -60,7 +60,6 @@ export const Contact = () => {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", message: "" });
 
-        // Reset success status after 3 seconds
         setTimeout(() => {
           setSubmitStatus("idle");
         }, 3000);
@@ -93,14 +92,12 @@ export const Contact = () => {
       id="contact"
       className="py-16 flex flex-col items-center gap-12 text-slate-800 bg-white relative overflow-hidden"
     >
-      {/* Enhanced background decorations */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent pointer-events-none" />
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-100/30 rounded-full blur-3xl translate-y-1/2" />
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-purple-500/5 rounded-full blur-2xl -translate-x-1/2" />
 
       <div className="max-w-7xl mx-auto px-4">
-        {/* Enhanced header section */}
         <SlidingDiv
           direction="top"
           px={50}
@@ -116,7 +113,6 @@ export const Contact = () => {
               Contact Us
             </h2>
           </div>
-          {/* Enhanced underline with multiple layers */}
           <div className="relative mx-auto w-24 md:w-36 h-1 mb-8">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full animate-pulse"></div>
@@ -125,7 +121,6 @@ export const Contact = () => {
           <p className="text-slate-600 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed px-4 font-medium mb-8">
             {`Ready to start your next project? Drop us a message and we'll get back to you faster than you can say "innovation"!`}
           </p>{" "}
-          {/* Enhanced contact stats */}
           <div className="flex justify-center items-center gap-8 text-sm md:text-base mb-8 flex-wrap">
             <div className="flex items-center gap-2 text-slate-700 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 shadow-sm">
               <Shield className="w-5 h-5 text-blue-600" />
@@ -143,12 +138,10 @@ export const Contact = () => {
             </div>
           </div>
         </SlidingDiv>{" "}
-        {/* Enhanced form section */}
         <SlidingDiv direction="bottom" px={50} className="relative z-10">
           <div className="bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-2xl max-w-4xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Enhanced Name Input */}
                 <div className="relative group">
                   <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                     <User className="w-4 h-4" />
@@ -170,7 +163,6 @@ export const Contact = () => {
                   </div>
                 </div>
 
-                {/* Enhanced Email Input */}
                 <div className="relative group">
                   <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                     <Mail className="w-4 h-4" />
@@ -194,7 +186,6 @@ export const Contact = () => {
                 </div>
               </div>
 
-              {/* Enhanced Message Input */}
               <div className="relative group">
                 <label className="text-sm font-semibold text-slate-700 mb-2 flex items-center gap-2">
                   <MessageSquare className="w-4 h-4" />
@@ -217,7 +208,6 @@ export const Contact = () => {
                 </div>
               </div>
 
-              {/* Enhanced Submit Button */}
               <div className="flex justify-center pt-4">
                 {" "}
                 <Button
@@ -255,7 +245,6 @@ export const Contact = () => {
                 </Button>
               </div>
 
-              {/* Enhanced Status Messages */}
               {submitStatus === "success" && (
                 <div className="mt-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-2xl backdrop-blur-md shadow-lg">
                   <div className="flex items-center gap-3 text-green-700">
@@ -297,8 +286,6 @@ export const Contact = () => {
             </form>
           </div>
         </SlidingDiv>{" "}
-        {/* Enhanced contact highlights */}
-        {/* Additional call to action */}
         <SlidingDiv
           direction="top"
           px={50}

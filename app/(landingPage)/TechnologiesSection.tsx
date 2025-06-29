@@ -9,7 +9,6 @@ import { SlidingDiv } from "@/components/custom/SlidingDiv";
 const TechnologyCard = ({ src }: TechnologyType & { index: number }) => {
   return (
     <div className="h-16 w-16 md:size-20 lg:size-24 flex items-center justify-center">
-      {/* Logo section */}
       <img
         src={src}
         className="h-full w-full drop-shadow-md transition-all duration-300 hover:scale-110"

@@ -12,6 +12,16 @@ const notoSans = Noto_Sans({
 
 export const metadata: Metadata = {
   title: "HinterBuild",
+  description: "Build your ideas with HinterBuild",
+  icons: {
+    icon: [
+      { url: "/logo-meta.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo-meta.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-meta.png", sizes: "48x48", type: "image/png" },
+    ],
+    shortcut: "/logo-meta.png",
+    apple: [{ url: "/logo-meta.png", sizes: "180x180", type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
